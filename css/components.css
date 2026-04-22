@@ -87,15 +87,15 @@
 }
 
 .btn-pill--primary {
-  background-color: var(--cool-mint-300);
+  background-color: var(--cool-mint-200);
   border: 2px solid var(--cool-mint-400);
-  color: var(--text-on-inverse);
+  color: var(--cool-mint-900);
 }
 
 .btn-pill--primary:hover,
 .btn-pill--primary:focus {
-  background-color: var(--cool-mint-900);
-  color: var(--text-on-inverse);
+  background-color: var(--cool-mint-400);
+  color: var(--cool-mint-900);
 }
 
 /* ============ HERO ============ */
@@ -166,9 +166,12 @@
   transform: scaleX(-1);
 }
 
-/* ============ PRODUCTS BAND (dark teal wrapper around product cards) ============ */
+/* ============ MINT BAND (dark teal section with horizontal stripe decoration) ============
+   Shared pattern for any full-width teal band that needs the horizontal
+   stripe backdrop. Apply `.mint-band` to any <section>; variant classes
+   layer on content-specific styling. */
 
-.products-band {
+.mint-band {
   background-color: var(--cool-mint-900);
   background-image: url("../images/mint-horizontal-stripes.svg");
   background-repeat: no-repeat;
@@ -177,6 +180,8 @@
   padding: var(--space-6xl) 0;
   color: var(--text-on-inverse);
 }
+
+/* ============ PRODUCTS BAND ============ */
 
 .products-band__title {
   text-align: center;
@@ -194,7 +199,7 @@
 
 .card-panel {
   background-color: var(--cool-mint-50);
-  border: 2px solid var(--border-default);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius-lg);
   height: 100%;
   display: flex;
@@ -236,7 +241,7 @@
 
 .card-panel__list li {
   padding: var(--space-l) 0;
-  border-bottom: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-strong);
   color: var(--text-default);
 }
 
@@ -483,9 +488,7 @@
 /* ============ TESTIMONIALS ============ */
 
 .testimonials {
-  background-color: var(--cool-mint-900);
   padding: var(--space-5xl) 0;
-  color: var(--text-on-inverse);
 }
 
 .testimonials__tweets {
@@ -642,7 +645,7 @@
 
 .newsletter-form input[type="email"] {
   flex: 1 1 200px;
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   padding: var(--space-s) var(--space-l);
   font-family: var(--font-body);
