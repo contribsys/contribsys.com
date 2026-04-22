@@ -18,7 +18,8 @@
   margin-right: var(--space-3xl);
 }
 
-.site-header .navbar-brand img {
+.site-header .navbar-brand img,
+.site-header .navbar-brand object {
   display: block;
   height: 54px;
   width: auto;

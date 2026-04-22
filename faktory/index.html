@@ -20,7 +20,7 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg">
           <a class="navbar-brand" href="../">
-            <img src="../images/contribsys-logo-redesign.svg" alt="Contributed Systems" width="190" height="54">
+            <object type="image/svg+xml" data="../images/contribsys-logo.svg" aria-label="Contributed Systems" width="190" height="54" tabindex="-1"></object>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -184,5 +184,20 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      // The brand logo uses <object> so its internal SVG hover animation fires,
+      // but <object> isolates clicks to its own browsing context. Reach into
+      // the SVG document and route clicks back to the parent anchor's href.
+      document.querySelectorAll('.navbar-brand object').forEach(function (obj) {
+        obj.addEventListener('load', function () {
+          var svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
+          if (!svg) return;
+          svg.style.cursor = 'pointer';
+          svg.addEventListener('click', function () {
+            window.location.href = obj.parentElement.getAttribute('href');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
