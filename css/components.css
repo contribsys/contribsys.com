@@ -743,13 +743,37 @@
     height: 200px;
   }
 
+  .site-footer .container {
+    padding-left: var(--space-6xl);
+    padding-right: var(--space-5xl);
+  }
+
   .site-footer__row > .col-md-4 {
     margin-bottom: var(--space-2xl);
+  }
+
+  .site-footer__col,
+  .site-footer__col p,
+  .site-footer__legal {
+    font-size: var(--size-s);
+  }
+
+  .site-footer__heading {
+    font-size: var(--size-l);
   }
 
   .site-footer__links,
   .site-footer__social {
     text-align: left;
+  }
+
+  .site-footer__links {
+    margin-bottom: var(--space-l);
+  }
+
+  .site-footer__links li {
+    margin-left: 0;
+    margin-right: var(--space-l);
   }
 
   .faktory-hero__screenshot {
