@@ -128,9 +128,7 @@
 /* Diagonal stripe decoration — backed by real SVG assets. Left side uses
    the orange-stripe.svg (authored facing outward-left). Right side flips it.
    Faktory hero uses the mint-stripe-right.svg for teal ribbons. */
-.hero__stripes,
-.about-mike__stripes,
-.info-band__stripes {
+.orange__stripes {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -142,15 +140,11 @@
   background-position: center;
 }
 
-.hero__stripes--left,
-.about-mike__stripes--left,
-.info-band__stripes--left {
+.orange__stripes--left {
   left: 0;
 }
 
-.hero__stripes--right,
-.about-mike__stripes--right,
-.info-band__stripes--right {
+.orange__stripes--right {
   right: 0;
   transform: scaleX(-1);
 }
@@ -311,12 +305,6 @@
   display: block;
 }
 
-.about-mike__stripes--left { left: 0; }
-.about-mike__stripes--right {
-  right: 0;
-  transform: scaleX(-1);
-}
-
 /* ============ FOOTER ============ */
 
 .site-footer {
@@ -392,7 +380,7 @@
   overflow: hidden;
 }
 
-.faktory-hero__stripes--right {
+.mint__stripes--right {
   position: absolute;
   top: 0;
   right: 0;
@@ -564,12 +552,6 @@
   overflow: hidden;
 }
 
-.info-band__stripes--left { left: 0; }
-.info-band__stripes--right {
-  right: 0;
-  transform: scaleX(-1);
-}
-
 .info-card {
   background-color: var(--surface-page);
   border-radius: var(--radius-lg);
@@ -651,14 +633,12 @@
 /* ============ RESPONSIVE ============ */
 
 @media (max-width: 767.98px) {
-  .hero__stripes,
-  .about-mike__stripes,
-  .info-band__stripes {
+  .orange__stripes {
     width: 100px;
     opacity: 0.6;
   }
 
-  .faktory-hero__stripes--right {
+  .mint__stripes--right {
     width: 50%;
     opacity: 0.6;
   }
