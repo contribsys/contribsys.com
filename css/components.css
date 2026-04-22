@@ -125,41 +125,34 @@
   margin: 0 auto;
 }
 
-/* Diagonal orange stripes, left and right, matching Figma */
+/* Diagonal stripe decoration — backed by real SVG assets. Left side uses
+   the orange-stripe.svg (authored facing outward-left). Right side flips it.
+   Faktory hero uses the mint-stripe-right.svg for teal ribbons. */
 .hero__stripes,
 .about-mike__stripes,
-.faktory-hero__stripes,
 .info-band__stripes {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 220px;
+  width: 280px;
   pointer-events: none;
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--dusty-orange-400) 0,
-    var(--dusty-orange-400) 28px,
-    transparent 28px,
-    transparent 56px,
-    var(--dusty-orange-600) 56px,
-    var(--dusty-orange-600) 84px,
-    transparent 84px,
-    transparent 112px
-  );
-  opacity: 0.9;
+  background-image: url("../images/orange-stripe.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-.hero__stripes--left {
+.hero__stripes--left,
+.about-mike__stripes--left,
+.info-band__stripes--left {
   left: 0;
-  mask-image: linear-gradient(to right, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
 }
 
-.hero__stripes--right {
+.hero__stripes--right,
+.about-mike__stripes--right,
+.info-band__stripes--right {
   right: 0;
   transform: scaleX(-1);
-  mask-image: linear-gradient(to right, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
 }
 
 /* ============ PRODUCTS BAND (dark teal wrapper around product cards) ============ */
@@ -395,7 +388,7 @@
 .faktory-hero {
   position: relative;
   background-color: var(--surface-page);
-  padding: var(--space-5xl) 0;
+  padding: var(--space-6xl) 0;
   overflow: hidden;
 }
 
@@ -404,20 +397,12 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 260px;
+  width: 40%;
   pointer-events: none;
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--cool-mint-300) 0,
-    var(--cool-mint-300) 28px,
-    transparent 28px,
-    transparent 56px,
-    var(--cool-mint-600) 56px,
-    var(--cool-mint-600) 84px,
-    transparent 84px,
-    transparent 112px
-  );
-  opacity: 0.8;
+  background-image: url("../images/mint-stripe-right.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
 }
 
 .faktory-hero__logo {
@@ -472,15 +457,16 @@
 
 .testimonials__aside {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: var(--space-l);
 }
 
 .testimonials__eyebrow {
   font-family: var(--font-details);
-  font-size: var(--size-s);
+  font-size: var(--size-m);
+  line-height: 1.5;
   color: var(--cool-mint-200);
-  text-transform: none;
-  max-width: 20ch;
+  max-width: 22ch;
 }
 
 /* ============ COMPARE TABLE ============ */
@@ -531,15 +517,30 @@
   background-color: var(--cool-grey-50);
 }
 
-.compare-table .fa-check-circle {
-  color: var(--cool-mint-700);
-  font-size: 1.25em;
+.compare-table td a {
+  color: var(--text-default);
 }
 
-.compare-table .fa-ban {
-  color: var(--dusty-orange-700);
-  font-size: 1.25em;
+.compare-table td a:hover {
+  color: var(--brand-accent);
 }
+
+/* Compare table icons — swap the Font Awesome defaults for bespoke SVGs.
+   Paths: images/check.svg (teal-circle check) and images/ban.svg (orange-circle ban).
+   Using background-image keeps the icon swappable without changing markup. */
+.icon-yes,
+.icon-no {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.icon-yes { background-image: url("../images/check.svg"); }
+.icon-no  { background-image: url("../images/ban.svg"); }
 
 .compare__cta {
   display: flex;
@@ -576,6 +577,7 @@
   height: 100%;
   position: relative;
   z-index: 2;
+  box-shadow: 0 8px 24px rgba(8, 72, 75, 0.08);
 }
 
 .info-card__header {
@@ -651,9 +653,13 @@
 @media (max-width: 767.98px) {
   .hero__stripes,
   .about-mike__stripes,
-  .faktory-hero__stripes,
   .info-band__stripes {
-    width: 80px;
+    width: 100px;
+    opacity: 0.6;
+  }
+
+  .faktory-hero__stripes--right {
+    width: 50%;
     opacity: 0.6;
   }
 
