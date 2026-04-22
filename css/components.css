@@ -25,12 +25,19 @@
 }
 
 .site-nav .nav-link,
-.site-nav-cta .nav-link {
+.site-nav-cta .nav-link:not(.btn-pill) {
   font-family: var(--font-subheading);
-  font-weight: 600;
-  font-size: var(--size-m);
+  font-weight: 400;
+  font-size: var(--size-xl);
   color: var(--text-default);
   padding: var(--space-s) var(--space-l);
+  margin: var(--space-xs) var(--space-l);
+}
+
+.site-nav-cta .nav-link.btn-pill {
+  font-family: var(--font-heading);
+  font-size: var(--size-l);
+  color: var(--cool-mint-900);
 }
 
 .site-nav .nav-link:hover,
@@ -53,7 +60,7 @@
   display: inline-block;
   font-family: var(--font-subheading);
   font-weight: 700;
-  border-radius: 999px;
+  border-radius: var(--radius-md);
   padding: var(--space-s) var(--space-2xl);
   border: 0;
   line-height: 1.2;
@@ -69,8 +76,9 @@
 }
 
 .btn-pill--accent {
-  background-color: var(--soft-apricot-300);
+  background-color: var(--soft-apricot-200);
   color: var(--text-default);
+  border: 2px solid var(--soft-apricot-300);
 }
 
 .btn-pill--accent:hover,
@@ -80,7 +88,8 @@
 }
 
 .btn-pill--primary {
-  background-color: var(--cool-mint-800);
+  background-color: var(--cool-mint-300);
+  border: 2px solid var(--cool-mint-400);
   color: var(--text-on-inverse);
 }
 
@@ -94,10 +103,11 @@
 
 .hero {
   position: relative;
-  background-color: var(--surface-subtle);
+  background-color: var(--surface-page);
   padding: var(--space-6xl) 0;
   overflow: hidden;
   text-align: center;
+  border-top: 2px solid var(--border-default);
 }
 
 .hero__inner {
@@ -153,6 +163,10 @@
 
 .products-band {
   background-color: var(--cool-mint-900);
+  background-image: url("../images/mint-horizontal-stripes.svg");
+  background-repeat: no-repeat;
+  background-position: center 55%;
+  background-size: 100% auto;
   padding: var(--space-6xl) 0;
   color: var(--text-on-inverse);
 }
