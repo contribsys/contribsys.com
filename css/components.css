@@ -233,7 +233,6 @@
 .product-card__features li {
   padding: var(--space-l) 0;
   border-bottom: 1px solid var(--border-default);
-  font-size: var(--size-l);
   color: var(--text-default);
 }
 
@@ -310,7 +309,6 @@
 }
 
 .about-mike__text p {
-  font-size: var(--size-m);
   line-height: 1.5;
   color: var(--text-default);
   margin-bottom: var(--space-l);
@@ -345,7 +343,6 @@
 .site-footer__heading {
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: var(--size-m);
   color: var(--cool-mint-800);
   margin-bottom: var(--space-l);
 }
@@ -447,7 +444,8 @@
 .faktory-hero__ui {
   max-width: 100%;
   height: auto;
-  border-radius: var(--radius-md);
+  border: 3px solid var(--border-strong);
+  border-radius: var(--radius-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -479,7 +477,6 @@
 
 .testimonials__eyebrow {
   font-family: var(--font-details);
-  font-size: var(--size-m);
   line-height: 1.5;
   color: var(--cool-mint-200);
   max-width: 22ch;
@@ -491,15 +488,23 @@
   padding: var(--space-6xl) 0;
 }
 
+.compare-table,
+.compare-table thead,
+.compare-table tbody,
+.compare-table tr,
+.compare-table th,
+.compare-table td,
+.compare-table thead th,
+.compare-table tbody td {
+  border: 0;
+}
+
 .compare-table {
-  font-family: var(--font-body);
-  color: var(--text-default);
   width: 100%;
 }
 
 .compare-table thead th {
   background-color: transparent;
-  border-bottom: 2px solid var(--border-default);
   padding: var(--space-l);
   font-family: var(--font-subheading);
   font-weight: 700;
@@ -518,7 +523,6 @@
 
 .compare-table tbody td {
   padding: var(--space-l);
-  border-color: var(--border-default);
   vertical-align: middle;
   text-align: center;
 }
@@ -530,16 +534,9 @@
 }
 
 .compare-table tbody tr:nth-of-type(odd) {
-  background-color: var(--cool-grey-50);
+  background-color: var(--dusty-orange-50);
 }
 
-.compare-table td a {
-  color: var(--text-default);
-}
-
-.compare-table td a:hover {
-  color: var(--brand-accent);
-}
 
 /* Compare table icons — swap the Font Awesome defaults for bespoke SVGs.
    Paths: images/check.svg (teal-circle check) and images/ban.svg (orange-circle ban).
@@ -622,7 +619,6 @@
 
 .info-card__list a {
   color: var(--text-default);
-  font-size: var(--size-m);
 }
 
 .info-card__list a:hover {
@@ -630,7 +626,6 @@
 }
 
 .info-card__body p {
-  font-size: var(--size-m);
   line-height: 1.5;
   color: var(--text-default);
   margin-bottom: var(--space-l);
@@ -649,7 +644,6 @@
   border-radius: var(--radius-sm);
   padding: var(--space-s) var(--space-l);
   font-family: var(--font-body);
-  font-size: var(--size-m);
   background-color: var(--surface-page);
 }
 

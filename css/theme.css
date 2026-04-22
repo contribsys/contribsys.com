@@ -132,6 +132,7 @@
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
+  --radius-xl: 20px;
 
   /* ============ SEMANTIC ALIASES ============ */
   --brand-primary:       var(--cool-mint-800);
@@ -140,18 +141,18 @@
   --brand-highlight:     var(--soft-apricot-500);
 
   --surface-page:    var(--faded-lemon-50);
-  --surface-subtle:  var(--faded-lemon-50);
+  --surface-subtle:  var(--soft-apricot-50);
   --surface-inverse: var(--cool-mint-800);
   --surface-card:    var(--cool-grey-25);
 
-  --text-default:    var(--cool-grey-950);
+  --text-default:    var(--cool-mint-800);
   --text-muted:      var(--taupe-800);
   --text-on-inverse: var(--cool-grey-25);
-  --text-link:       var(--dusty-orange-700);
-  --text-link-hover: var(--dusty-orange-800);
+  --text-link:       var(--dusty-orange-800);
+  --text-link-hover: var(--dusty-orange-900);
 
   --border-default: var(--cool-grey-200);
-  --border-strong:  var(--cool-grey-800);
+  --border-strong:  var(--cool-mint-600);
 
   /* ============ TYPE ROLES ============ */
   --type-hero-family:      var(--font-heading);
@@ -218,7 +219,7 @@
 
 body {
   font-family: var(--font-body);
-  font-size: var(--size-m);
+  font-size: var(--size-l);
   line-height: 1.4;
   color: var(--text-default);
   background-color: var(--surface-page);
