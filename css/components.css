@@ -1,0 +1,413 @@
+/* ==========================================================================
+   components.css
+   Component-level restyling layered over Bootstrap 4.4.1. Consumes the tokens
+   defined in theme.css. Markup is preserved — selectors target existing
+   Bootstrap classes and element shapes used in index.html and faktory/index.html.
+   ========================================================================== */
+
+/* ============ NAVBAR ============ */
+
+.navbar {
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+
+.navbar .nav-link {
+  font-family: var(--font-subheading);
+  font-size: var(--size-m);
+  color: var(--text-default);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-item.active > .nav-link,
+.navbar .nav-link.active {
+  color: var(--brand-primary);
+}
+
+/* Push the Purchase / Manage CTAs to look like pill buttons */
+.navbar-nav.navbar-right .nav-item:nth-last-child(2) .nav-link {
+  background-color: var(--soft-apricot-300);
+  color: var(--text-default);
+  border-radius: 999px;
+  padding: var(--space-xs) var(--space-l);
+  margin-right: var(--space-s);
+}
+
+.navbar-nav.navbar-right .nav-item:last-child .nav-link {
+  background-color: var(--cool-mint-800);
+  color: var(--text-on-inverse);
+  border-radius: 999px;
+  padding: var(--space-xs) var(--space-l);
+}
+
+.navbar-nav.navbar-right .nav-item:last-child .nav-link:hover {
+  background-color: var(--cool-mint-900);
+  color: var(--text-on-inverse);
+  text-decoration: none;
+}
+
+/* ============ HERO / JUMBOTRON ============ */
+
+.jumbotron {
+  background-color: var(--surface-subtle);
+  border-radius: 0;
+  padding: var(--space-6xl) var(--space-5xl);
+  margin-bottom: var(--space-5xl);
+}
+
+.jumbotron h1 {
+  font-family: var(--type-hero-family);
+  font-size: var(--type-hero-size);
+  line-height: var(--type-hero-line-height);
+  font-weight: var(--type-hero-weight);
+  margin-bottom: var(--space-4xl);
+}
+
+/* In the hero, accent the emphasized phrase with brand orange. Because the
+   current markup has no span, scope this by adding .hero-accent to any word
+   you want highlighted. Falls back cleanly if unused. */
+.jumbotron .hero-accent {
+  color: var(--brand-accent);
+}
+
+.jumbotron .lead {
+  font-size: var(--type-body-xl-size);
+  line-height: var(--type-body-xl-line-height);
+  color: var(--text-muted);
+}
+
+/* ============ PRODUCT CARDS (index.html) ============ */
+
+.product-row .card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.product-row .card-header {
+  background-color: transparent;
+  border-bottom: 0;
+  padding: var(--space-4xl) var(--space-4xl) var(--space-l);
+}
+
+.product-row .card-subtitle {
+  font-family: var(--font-subheading);
+  font-size: var(--type-body-xl-size);
+  line-height: var(--type-body-xl-line-height);
+  color: var(--text-default);
+  margin-top: var(--space-l);
+}
+
+.product-row .card-body {
+  padding: var(--space-l) var(--space-4xl);
+}
+
+.product-row .list-group-flush .list-group-item {
+  border-color: var(--border-default);
+  padding: var(--space-l) 0;
+  font-size: var(--size-m);
+  background-color: transparent;
+}
+
+.product-row .card-footer {
+  background-color: transparent;
+  border-top: 0;
+  padding: var(--space-l) var(--space-4xl) var(--space-4xl);
+  text-align: center;
+}
+
+/* "Learn More" as apricot pill badge */
+.product-row .card-footer .btn-primary {
+  background-color: var(--soft-apricot-300);
+  border-color: var(--soft-apricot-300);
+  color: var(--text-default);
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: var(--space-s) var(--space-2xl);
+}
+
+.product-row .card-footer .btn-primary:hover,
+.product-row .card-footer .btn-primary:focus {
+  background-color: var(--soft-apricot-500);
+  border-color: var(--soft-apricot-500);
+  color: var(--text-default);
+}
+
+/* ============ "OPEN SOURCE-BASED" DARK BAND (index.html, .jumbotron.py-5) ============ */
+/* Second .jumbotron on the home page — the teal band with open-source messaging. */
+
+.jumbotron.py-5 {
+  background-color: var(--surface-inverse);
+  color: var(--text-on-inverse);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6xl) var(--space-5xl);
+}
+
+.jumbotron.py-5 h2 {
+  color: var(--text-on-inverse);
+  font-family: var(--type-h2-family);
+  font-weight: var(--type-h2-weight);
+}
+
+.jumbotron.py-5 .text-muted {
+  color: var(--cool-mint-300) !important;
+}
+
+.jumbotron.py-5 .lead {
+  color: var(--cool-mint-100);
+}
+
+/* ============ AWARDS / CONTACT CARDS (index.html) ============ */
+
+.container > .row .card {
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+
+.container > .row .card-header {
+  background-color: transparent;
+  border-bottom: 0;
+  padding: var(--space-2xl) var(--space-2xl) 0;
+}
+
+.container > .row .card-header h3 {
+  text-align: center;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  font-size: var(--size-2xl);
+}
+
+.container > .row .card-body {
+  padding: var(--space-2xl);
+}
+
+/* ============ FAKTORY: HERO BAND ============ */
+
+.faktory-hero {
+  background-color: var(--surface-subtle);
+  padding: var(--space-6xl) 0;
+  margin-bottom: var(--space-5xl);
+}
+
+.faktory-hero h2 {
+  font-family: var(--type-h2-family);
+  font-weight: var(--type-h2-weight);
+  font-size: var(--type-h2-size);
+  color: var(--text-default);
+  margin-top: var(--space-2xl);
+}
+
+.faktory-hero .m-btm {
+  margin-bottom: var(--space-2xl);
+}
+
+/* ============ FAKTORY: TWEET GRID ============ */
+/* The two-col tweet screenshot row; make the images respect the grid. */
+
+.container.mt-5 .row > .col > a > img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+/* ============ FAKTORY: COMPARISON TABLE ============ */
+
+.table {
+  font-family: var(--font-body);
+  color: var(--text-default);
+}
+
+.table thead th {
+  background-color: transparent;
+  border-bottom: 2px solid var(--border-default);
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  padding: var(--space-l);
+}
+
+.table thead th h3 {
+  color: var(--cool-mint-700);
+  font-size: var(--size-2xl);
+  margin: 0;
+}
+
+.table tbody td {
+  padding: var(--space-l);
+  border-color: var(--border-default);
+  vertical-align: middle;
+}
+
+.table.table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--cool-grey-50);
+}
+
+.table td.key {
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+/* Check / ban icon colors overridden from inline page <style> when markup is
+   updated to rely on this file. */
+.table .fa-check-circle { color: var(--cool-mint-700); }
+.table .fa-ban          { color: var(--dusty-orange-700); }
+
+.table tfoot th {
+  background-color: transparent;
+  border-top: 2px solid var(--border-default);
+  padding: var(--space-2xl) var(--space-l);
+}
+
+.table tfoot .btn-primary {
+  background-color: var(--soft-apricot-300);
+  border-color: var(--soft-apricot-300);
+  color: var(--text-default);
+  border-radius: 999px;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+}
+
+.table tfoot .btn-primary:hover,
+.table tfoot .btn-primary:focus {
+  background-color: var(--soft-apricot-500);
+  border-color: var(--soft-apricot-500);
+  color: var(--text-default);
+}
+
+.table tfoot .btn-success {
+  background-color: var(--cool-mint-800);
+  border-color: var(--cool-mint-800);
+  color: var(--text-on-inverse);
+  border-radius: 999px;
+  font-family: var(--font-subheading);
+  font-weight: 600;
+}
+
+.table tfoot .btn-success:hover,
+.table tfoot .btn-success:focus {
+  background-color: var(--cool-mint-900);
+  border-color: var(--cool-mint-900);
+  color: var(--text-on-inverse);
+}
+
+/* ============ FAKTORY: MORE INFO + NEWSLETTER CARDS ============ */
+
+.container.my-5 .card {
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.container.my-5 .card-header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--space-2xl);
+}
+
+.container.my-5 .card-header .card-title {
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  font-size: var(--size-2xl);
+  margin: 0;
+}
+
+.container.my-5 .card-body {
+  padding: var(--space-2xl);
+  font-size: var(--type-body-l-size);
+  line-height: var(--type-body-l-line-height);
+}
+
+.container.my-5 .list-group-flush .list-group-item {
+  border-color: var(--border-default);
+  padding: var(--space-l) var(--space-2xl);
+  background-color: transparent;
+}
+
+.container.my-5 .list-group-flush .list-group-item a.link,
+.container.my-5 .list-group-flush .list-group-item a {
+  color: var(--text-default);
+}
+
+.container.my-5 .list-group-flush .list-group-item a:hover {
+  color: var(--brand-accent);
+}
+
+/* Newsletter form */
+.container.my-5 form input[type="text"],
+.container.my-5 form input[type="email"] {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-s) var(--space-l);
+  font-family: var(--font-body);
+  font-size: var(--size-m);
+  background-color: var(--surface-page);
+  margin-right: var(--space-s);
+}
+
+.container.my-5 form input[type="text"]:focus,
+.container.my-5 form input[type="email"]:focus {
+  outline: 0;
+  border-color: var(--brand-primary);
+}
+
+.container.my-5 form input[type="submit"] {
+  background-color: var(--soft-apricot-500);
+  border: 0;
+  color: var(--text-default);
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: var(--space-s) var(--space-2xl);
+  cursor: pointer;
+}
+
+.container.my-5 form input[type="submit"]:hover {
+  background-color: var(--soft-apricot-600);
+}
+
+/* ============ FOOTER ============ */
+
+footer {
+  padding-top: var(--space-5xl);
+  padding-bottom: var(--space-5xl);
+  font-family: var(--font-details);
+  font-size: var(--type-details-size);
+  line-height: var(--type-details-line-height);
+  color: var(--text-muted);
+}
+
+footer a {
+  color: var(--text-muted);
+}
+
+footer a:hover {
+  color: var(--text-link);
+}
+
+/* ============ GENERIC BUTTON RESETS ============ */
+/* Bootstrap's .btn-primary/.btn-success base; brand defaults so any stray
+   buttons not covered above still feel on-system. */
+
+.btn {
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--text-on-inverse);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: var(--brand-primary-hover);
+  border-color: var(--brand-primary-hover);
+  color: var(--text-on-inverse);
+}

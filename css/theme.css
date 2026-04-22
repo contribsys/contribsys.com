@@ -1,0 +1,278 @@
+/* ==========================================================================
+   theme.css
+   Design tokens + base element styling extracted from the Figma design system
+   (Contributed Systems Redesign). Layered on top of Bootstrap 4.4.1.
+
+   Load order: bootstrap.css → theme.css → components.css
+   ========================================================================== */
+
+:root {
+  /* ============ PRIMITIVES — raw ramps from Figma (1:1) ============ */
+
+  /* Cool Mint — primary brand (dark teal used for inverted bands) */
+  --cool-mint-50:  #f2f7f7;
+  --cool-mint-100: #dae5e5;
+  --cool-mint-200: #ceddde;
+  --cool-mint-300: #c1d3d4;
+  --cool-mint-400: #adc5c7;
+  --cool-mint-500: #9bbbbd;
+  --cool-mint-600: #78a3a5;
+  --cool-mint-700: #4c8486;
+  --cool-mint-800: #08484b;
+  --cool-mint-900: #052f30;
+  --cool-mint-950: #102122;
+
+  /* Dusty Orange — accent */
+  --dusty-orange-50:  #f2ede9;
+  --dusty-orange-100: #ebddd3;
+  --dusty-orange-200: #e8cfbc;
+  --dusty-orange-300: #e8c0a2;
+  --dusty-orange-400: #e8b289;
+  --dusty-orange-500: #de9864;
+  --dusty-orange-600: #ce7a3b;
+  --dusty-orange-700: #a86431;
+  --dusty-orange-800: #804c25;
+  --dusty-orange-900: #4a2c15;
+  --dusty-orange-950: #2e1b0d;
+
+  /* Soft Apricot — highlights / pills */
+  --soft-apricot-50:  #f7eee1;
+  --soft-apricot-100: #f7e3c6;
+  --soft-apricot-200: #f7d7a8;
+  --soft-apricot-300: #f2bb6b;
+  --soft-apricot-400: #f2bb6b;
+  --soft-apricot-500: #e6ac57;
+  --soft-apricot-600: #cf9a4c;
+  --soft-apricot-700: #ab7f3f;
+  --soft-apricot-800: #826130;
+  --soft-apricot-900: #543f1f;
+  --soft-apricot-950: #402f18;
+
+  /* Faded Lemon — soft page backgrounds */
+  --faded-lemon-50:  #fffdf5;
+  --faded-lemon-100: #fff6d7;
+  --faded-lemon-200: #f0e5bd;
+  --faded-lemon-300: #e5d7a1;
+  --faded-lemon-400: #d6c78d;
+  --faded-lemon-500: #c7b777;
+  --faded-lemon-600: #b2a262;
+  --faded-lemon-700: #9c8b4b;
+  --faded-lemon-800: #85753a;
+  --faded-lemon-900: #635726;
+  --faded-lemon-950: #453c1a;
+
+  /* Taupe Neutral */
+  --taupe-50:  #faf7f5;
+  --taupe-100: #e8e5e3;
+  --taupe-200: #d9d6d4;
+  --taupe-300: #cfccca;
+  --taupe-400: #c4c0bc;
+  --taupe-500: #b8b3b0;
+  --taupe-600: #a69f9a;
+  --taupe-700: #8f8782;
+  --taupe-800: #736c66;
+  --taupe-900: #5c544f;
+  --taupe-950: #453e38;
+
+  /* Cool Grey — UI greys */
+  --cool-grey-25:  #ffffff;
+  --cool-grey-50:  #f7f7f7;
+  --cool-grey-100: #e6e6e6;
+  --cool-grey-200: #dedede;
+  --cool-grey-300: #d4d4d4;
+  --cool-grey-400: #c7c7c7;
+  --cool-grey-500: #bdbdbd;
+  --cool-grey-600: #a5a5a5;
+  --cool-grey-700: #868686;
+  --cool-grey-800: #4b4b4b;
+  --cool-grey-900: #303030;
+  --cool-grey-950: #081112;
+
+  /* ============ TYPE FAMILIES ============ */
+  --font-heading:    "Russo One", system-ui, sans-serif;
+  --font-subheading: "Figtree", system-ui, sans-serif;
+  --font-body:       "Figtree", system-ui, sans-serif;
+  --font-details:    "Azeret Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type sizes — Desktop values; overridden at Tablet/Mobile below */
+  --size-xs:  12px;
+  --size-s:   14px;
+  --size-m:   16px;
+  --size-l:   18px;
+  --size-xl:  24px;
+  --size-2xl: 32px;
+  --size-3xl: 40px;
+  --size-4xl: 72px;
+  --size-5xl: 80px;
+
+  /* Spacing — Desktop */
+  --space-xs:  8px;
+  --space-s:   10px;
+  --space-m:   14px;
+  --space-l:   16px;
+  --space-xl:  20px;
+  --space-2xl: 24px;
+  --space-3xl: 28px;
+  --space-4xl: 32px;
+  --space-5xl: 40px;
+  --space-6xl: 72px;
+
+  /* Icon / control dimensions */
+  --dim-xs:  12px;
+  --dim-s:   14px;
+  --dim-m:   16px;
+  --dim-l:   18px;
+  --dim-xl:  24px;
+  --dim-2xl: 32px;
+  --dim-3xl: 48px;
+  --dim-4xl: 72px;
+  --dim-5xl: 80px;
+
+  /* Radii — proposed (no radius tokens in Figma) */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* ============ SEMANTIC ALIASES ============ */
+  --brand-primary:       var(--cool-mint-800);
+  --brand-primary-hover: var(--cool-mint-900);
+  --brand-accent:        var(--dusty-orange-600);
+  --brand-highlight:     var(--soft-apricot-500);
+
+  --surface-page:    var(--cool-grey-25);
+  --surface-subtle:  var(--faded-lemon-50);
+  --surface-inverse: var(--cool-mint-800);
+  --surface-card:    var(--cool-grey-25);
+
+  --text-default:    var(--cool-grey-950);
+  --text-muted:      var(--taupe-800);
+  --text-on-inverse: var(--cool-grey-25);
+  --text-link:       var(--dusty-orange-700);
+  --text-link-hover: var(--dusty-orange-800);
+
+  --border-default: var(--cool-grey-200);
+  --border-strong:  var(--cool-grey-800);
+
+  /* ============ TYPE ROLES ============ */
+  --type-hero-family:      var(--font-heading);
+  --type-hero-size:        var(--size-4xl);
+  --type-hero-line-height: 1;
+  --type-hero-weight:      400;
+
+  --type-h2-family:      var(--font-subheading);
+  --type-h2-size:        var(--size-3xl);
+  --type-h2-line-height: 1;
+  --type-h2-weight:      700;
+
+  --type-h3-family:      var(--font-subheading);
+  --type-h3-size:        var(--size-2xl);
+  --type-h3-line-height: 1.25;
+  --type-h3-weight:      400;
+
+  --type-body-l-size:         var(--size-l);
+  --type-body-l-line-height:  1.333;
+
+  --type-body-xl-size:        var(--size-xl);
+  --type-body-xl-line-height: 1.333;
+
+  --type-details-family:      var(--font-details);
+  --type-details-size:        var(--size-xs);
+  --type-details-line-height: 1.5;
+}
+
+/* ============ RESPONSIVE OVERRIDES ============ */
+/* Figma breakpoints mapped to Bootstrap 4:
+     Tablet = <992px (lg)
+     Mobile = <768px (md) */
+
+@media (max-width: 991.98px) {
+  :root {
+    --space-xs:  6px;
+    --space-s:   8px;
+    --space-m:   10px;
+    --space-l:   14px;
+    --space-xl:  16px;
+    --space-2xl: 20px;
+    --space-3xl: 24px;
+    --space-4xl: 28px;
+    --space-5xl: 32px;
+    --space-6xl: 40px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --size-xs:  10px;
+    --size-s:   12px;
+    --size-m:   14px;
+    --size-l:   16px;
+    --size-xl:  18px;
+    --size-2xl: 24px;
+    --size-3xl: 30px;
+    --size-4xl: 48px;
+    --size-5xl: 72px;
+  }
+}
+
+/* ============ BASE ELEMENT STYLES ============ */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-m);
+  line-height: 1.4;
+  color: var(--text-default);
+  background-color: var(--surface-page);
+}
+
+h1, .h1 {
+  font-family: var(--type-hero-family);
+  font-size: var(--type-hero-size);
+  line-height: var(--type-hero-line-height);
+  font-weight: var(--type-hero-weight);
+  color: var(--text-default);
+}
+
+h2, .h2 {
+  font-family: var(--type-h2-family);
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-line-height);
+  font-weight: var(--type-h2-weight);
+  color: var(--text-default);
+}
+
+h3, .h3 {
+  font-family: var(--type-h3-family);
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-line-height);
+  font-weight: var(--type-h3-weight);
+  color: var(--text-default);
+}
+
+h4, .h4 { font-family: var(--font-subheading); font-weight: 600; }
+h5, .h5 { font-family: var(--font-subheading); font-weight: 600; }
+h6, .h6 { font-family: var(--font-subheading); font-weight: 600; }
+
+p, .lead {
+  font-family: var(--font-body);
+}
+
+.lead {
+  font-size: var(--type-body-xl-size);
+  line-height: var(--type-body-xl-line-height);
+  font-weight: 400;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-details);
+}
