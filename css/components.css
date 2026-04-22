@@ -35,7 +35,6 @@
 }
 
 .site-nav-cta .nav-link.btn-pill {
-  font-family: var(--font-heading);
   font-size: var(--size-l);
   color: var(--cool-mint-900);
 }
@@ -58,8 +57,8 @@
 
 .btn-pill {
   display: inline-block;
-  font-family: var(--font-subheading);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 400;
   border-radius: var(--radius-md);
   padding: var(--space-s) var(--space-2xl);
   border: 0;
