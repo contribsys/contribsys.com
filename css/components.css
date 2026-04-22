@@ -134,19 +134,27 @@
   margin: 0 auto;
 }
 
-/* Diagonal stripe decoration — backed by real SVG assets. Left side uses
-   the orange-stripe.svg (authored facing outward-left). Right side flips it.
-   Faktory hero uses the mint-stripe-right.svg for teal ribbons. */
+/* Diagonal stripe decoration. The SVG authors stripes running from the
+   top-left corner of its 498×604 viewBox down-right. Background size is
+   fixed to the SVG's natural dimensions so the stripe geometry doesn't
+   warp as the viewport narrows; we only adjust position. Position pins
+   the artwork's outer corner to the element's outer edge, so what gets
+   clipped on narrow viewports is the empty inner portion of the SVG. */
+/* Diagonal stripe decoration. The SVG scales height-first with its aspect
+   ratio preserved, so its natural width after scaling depends on the
+   section height. The element is sized to the SVG's aspect ratio so
+   nothing clips, and pinned against the outer viewport edge. On narrow
+   viewports the stripes can overlap into content area — that's
+   accepted; content sits on top via z-index. */
 .orange__stripes {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 280px;
+  aspect-ratio: 498 / 604;
   pointer-events: none;
   background-image: url("../images/orange-stripe.svg");
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
 }
 
 .orange__stripes--left {
@@ -176,23 +184,24 @@
   font-family: var(--font-subheading);
   font-weight: 700;
   font-size: var(--size-3xl);
-  margin-bottom: var(--space-4xl);
+  margin-bottom: var(--space-6xl);
 }
 
 /* ============ PRODUCT CARDS ============ */
 
 .product-card {
-  background-color: var(--cool-grey-50);
+  background-color: var(--cool-mint-50);
   border-radius: var(--radius-lg);
-  padding: var(--space-4xl) var(--space-3xl);
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .product-card__header {
+  background-color: var(--cool-mint-100);
+  padding: var(--space-4xl) var(--space-3xl);
   text-align: center;
-  margin-bottom: var(--space-2xl);
 }
 
 .product-card__logo {
@@ -207,31 +216,34 @@
 }
 
 .product-card__tagline {
-  font-family: "IBM Plex Serif", Georgia, serif;
   font-style: italic;
   font-size: var(--size-l);
   color: var(--text-default);
   line-height: 1.35;
-  margin: 0 auto;
+  margin: var(--space-2xl) auto var(--space-s);
   max-width: 26ch;
 }
 
 .product-card__features {
   list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-2xl);
-  border-top: 1px solid var(--border-default);
+  margin: 0;
+  padding: 0 var(--space-3xl);
 }
 
 .product-card__features li {
   padding: var(--space-l) 0;
   border-bottom: 1px solid var(--border-default);
-  font-size: var(--size-m);
+  font-size: var(--size-l);
   color: var(--text-default);
+}
+
+.product-card__features li:last-child {
+  border-bottom: 0;
 }
 
 .product-card__footer {
   text-align: center;
+  padding: var(--space-2xl) var(--space-3xl) var(--space-4xl);
   margin-top: auto;
 }
 
@@ -244,10 +256,10 @@
 }
 
 .open-source__title {
-  font-family: var(--font-subheading);
-  font-weight: 700;
-  font-size: var(--size-3xl);
-  line-height: 1.15;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--size-4xl);
+  line-height: 1;
   color: var(--brand-primary);
   max-width: 18ch;
   margin: 0 auto var(--space-2xl);
@@ -258,11 +270,11 @@
 }
 
 .open-source__lead {
-  font-size: var(--type-body-l-size);
-  line-height: var(--type-body-l-line-height);
+  font-size: var(--size-xl);
+  line-height: var(--size-2xl);
   color: var(--text-default);
   max-width: 60ch;
-  margin: 0 auto;
+  margin: var(--space-4xl) auto 0;
 }
 
 /* ============ ABOUT MIKE ============ */
@@ -293,7 +305,7 @@
   font-family: var(--font-subheading);
   font-weight: 700;
   font-size: var(--size-2xl);
-  color: var(--text-default);
+  color: var(--cool-grey-950);
   margin-bottom: var(--space-l);
 }
 
@@ -321,8 +333,8 @@
 /* ============ FOOTER ============ */
 
 .site-footer {
-  background-color: var(--cool-mint-900);
-  color: var(--text-on-inverse);
+  background-color: var(--surface-page);
+  color: var(--text-default);
   padding: var(--space-5xl) 0;
 }
 
@@ -331,27 +343,29 @@
 }
 
 .site-footer__heading {
-  font-family: var(--font-subheading);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 400;
   font-size: var(--size-m);
-  color: var(--text-on-inverse);
+  color: var(--cool-mint-800);
   margin-bottom: var(--space-l);
 }
 
-.site-footer__col p,
-.site-footer__col a {
-  color: var(--cool-mint-200);
+.site-footer__col,
+.site-footer__col p {
   font-family: var(--font-details);
   font-size: var(--size-xs);
-  line-height: 1.5;
+  line-height: 1.6;
+  color: var(--text-default);
 }
 
 .site-footer__col a {
-  text-decoration: underline;
+  color: var(--text-link);
+  text-decoration: none;
 }
 
 .site-footer__col a:hover {
-  color: var(--soft-apricot-300);
+  color: var(--text-link-hover);
+  text-decoration: underline;
 }
 
 .site-footer__badges {
@@ -373,7 +387,8 @@
 }
 
 .site-footer__links li {
-  margin-bottom: var(--space-xs);
+  display: inline-block;
+  margin-left: var(--space-l);
 }
 
 .site-footer__social {
@@ -647,8 +662,7 @@
 
 @media (max-width: 767.98px) {
   .orange__stripes {
-    width: 100px;
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   .mint__stripes--right {
