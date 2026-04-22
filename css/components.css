@@ -1,413 +1,689 @@
 /* ==========================================================================
    components.css
-   Component-level restyling layered over Bootstrap 4.4.1. Consumes the tokens
-   defined in theme.css. Markup is preserved — selectors target existing
-   Bootstrap classes and element shapes used in index.html and faktory/index.html.
+   Component-level styling layered over Bootstrap 4.4.1 and theme.css tokens.
    ========================================================================== */
 
-/* ============ NAVBAR ============ */
+/* ============ HEADER / NAV ============ */
 
-.navbar {
-  padding-top: var(--space-l);
-  padding-bottom: var(--space-l);
+.site-header {
+  padding: var(--space-l) 0;
+  background-color: var(--surface-page);
 }
 
-.navbar .nav-link {
+.site-header .navbar {
+  padding: 0;
+}
+
+.site-header .navbar-brand {
+  margin-right: var(--space-3xl);
+}
+
+.site-header .navbar-brand img {
+  display: block;
+  height: 54px;
+  width: auto;
+}
+
+.site-nav .nav-link,
+.site-nav-cta .nav-link {
   font-family: var(--font-subheading);
+  font-weight: 600;
   font-size: var(--size-m);
   color: var(--text-default);
+  padding: var(--space-s) var(--space-l);
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link:focus,
-.navbar .nav-item.active > .nav-link,
-.navbar .nav-link.active {
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus,
+.site-nav .nav-link.active {
   color: var(--brand-primary);
 }
 
-/* Push the Purchase / Manage CTAs to look like pill buttons */
-.navbar-nav.navbar-right .nav-item:nth-last-child(2) .nav-link {
-  background-color: var(--soft-apricot-300);
-  color: var(--text-default);
-  border-radius: 999px;
-  padding: var(--space-xs) var(--space-l);
-  margin-right: var(--space-s);
+.site-nav-cta {
+  gap: var(--space-s);
 }
 
-.navbar-nav.navbar-right .nav-item:last-child .nav-link {
-  background-color: var(--cool-mint-800);
-  color: var(--text-on-inverse);
-  border-radius: 999px;
-  padding: var(--space-xs) var(--space-l);
+.site-nav-cta .nav-item + .nav-item {
+  margin-left: var(--space-s);
 }
 
-.navbar-nav.navbar-right .nav-item:last-child .nav-link:hover {
-  background-color: var(--cool-mint-900);
-  color: var(--text-on-inverse);
+/* ============ PILL BUTTON SYSTEM ============ */
+
+.btn-pill {
+  display: inline-block;
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: var(--space-s) var(--space-2xl);
+  border: 0;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
   text-decoration: none;
 }
 
-/* ============ HERO / JUMBOTRON ============ */
-
-.jumbotron {
-  background-color: var(--surface-subtle);
-  border-radius: 0;
-  padding: var(--space-6xl) var(--space-5xl);
-  margin-bottom: var(--space-5xl);
+.btn-pill:hover,
+.btn-pill:focus {
+  text-decoration: none;
 }
 
-.jumbotron h1 {
+.btn-pill--accent {
+  background-color: var(--soft-apricot-300);
+  color: var(--text-default);
+}
+
+.btn-pill--accent:hover,
+.btn-pill--accent:focus {
+  background-color: var(--soft-apricot-500);
+  color: var(--text-default);
+}
+
+.btn-pill--primary {
+  background-color: var(--cool-mint-800);
+  color: var(--text-on-inverse);
+}
+
+.btn-pill--primary:hover,
+.btn-pill--primary:focus {
+  background-color: var(--cool-mint-900);
+  color: var(--text-on-inverse);
+}
+
+/* ============ HERO ============ */
+
+.hero {
+  position: relative;
+  background-color: var(--surface-subtle);
+  padding: var(--space-6xl) 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
   font-family: var(--type-hero-family);
   font-size: var(--type-hero-size);
   line-height: var(--type-hero-line-height);
   font-weight: var(--type-hero-weight);
+  color: var(--brand-primary);
+  margin-bottom: var(--space-2xl);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__lead {
+  font-size: var(--type-body-xl-size);
+  line-height: var(--type-body-xl-line-height);
+  color: var(--text-default);
+  max-width: 40ch;
+  margin: 0 auto;
+}
+
+/* Diagonal orange stripes, left and right, matching Figma */
+.hero__stripes,
+.about-mike__stripes,
+.faktory-hero__stripes,
+.info-band__stripes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--dusty-orange-400) 0,
+    var(--dusty-orange-400) 28px,
+    transparent 28px,
+    transparent 56px,
+    var(--dusty-orange-600) 56px,
+    var(--dusty-orange-600) 84px,
+    transparent 84px,
+    transparent 112px
+  );
+  opacity: 0.9;
+}
+
+.hero__stripes--left {
+  left: 0;
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+.hero__stripes--right {
+  right: 0;
+  transform: scaleX(-1);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+/* ============ PRODUCTS BAND (dark teal wrapper around product cards) ============ */
+
+.products-band {
+  background-color: var(--cool-mint-900);
+  padding: var(--space-6xl) 0;
+  color: var(--text-on-inverse);
+}
+
+.products-band__title {
+  text-align: center;
+  color: var(--text-on-inverse);
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-3xl);
   margin-bottom: var(--space-4xl);
 }
 
-/* In the hero, accent the emphasized phrase with brand orange. Because the
-   current markup has no span, scope this by adding .hero-accent to any word
-   you want highlighted. Falls back cleanly if unused. */
-.jumbotron .hero-accent {
-  color: var(--brand-accent);
-}
+/* ============ PRODUCT CARDS ============ */
 
-.jumbotron .lead {
-  font-size: var(--type-body-xl-size);
-  line-height: var(--type-body-xl-line-height);
-  color: var(--text-muted);
-}
-
-/* ============ PRODUCT CARDS (index.html) ============ */
-
-.product-row .card {
-  background-color: var(--surface-card);
-  border: 1px solid var(--border-strong);
+.product-card {
+  background-color: var(--cool-grey-50);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: var(--space-4xl) var(--space-3xl);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.product-row .card-header {
-  background-color: transparent;
-  border-bottom: 0;
-  padding: var(--space-4xl) var(--space-4xl) var(--space-l);
-}
-
-.product-row .card-subtitle {
-  font-family: var(--font-subheading);
-  font-size: var(--type-body-xl-size);
-  line-height: var(--type-body-xl-line-height);
-  color: var(--text-default);
-  margin-top: var(--space-l);
-}
-
-.product-row .card-body {
-  padding: var(--space-l) var(--space-4xl);
-}
-
-.product-row .list-group-flush .list-group-item {
-  border-color: var(--border-default);
-  padding: var(--space-l) 0;
-  font-size: var(--size-m);
-  background-color: transparent;
-}
-
-.product-row .card-footer {
-  background-color: transparent;
-  border-top: 0;
-  padding: var(--space-l) var(--space-4xl) var(--space-4xl);
+.product-card__header {
   text-align: center;
-}
-
-/* "Learn More" as apricot pill badge */
-.product-row .card-footer .btn-primary {
-  background-color: var(--soft-apricot-300);
-  border-color: var(--soft-apricot-300);
-  color: var(--text-default);
-  font-family: var(--font-subheading);
-  font-weight: 600;
-  border-radius: 999px;
-  padding: var(--space-s) var(--space-2xl);
-}
-
-.product-row .card-footer .btn-primary:hover,
-.product-row .card-footer .btn-primary:focus {
-  background-color: var(--soft-apricot-500);
-  border-color: var(--soft-apricot-500);
-  color: var(--text-default);
-}
-
-/* ============ "OPEN SOURCE-BASED" DARK BAND (index.html, .jumbotron.py-5) ============ */
-/* Second .jumbotron on the home page — the teal band with open-source messaging. */
-
-.jumbotron.py-5 {
-  background-color: var(--surface-inverse);
-  color: var(--text-on-inverse);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6xl) var(--space-5xl);
-}
-
-.jumbotron.py-5 h2 {
-  color: var(--text-on-inverse);
-  font-family: var(--type-h2-family);
-  font-weight: var(--type-h2-weight);
-}
-
-.jumbotron.py-5 .text-muted {
-  color: var(--cool-mint-300) !important;
-}
-
-.jumbotron.py-5 .lead {
-  color: var(--cool-mint-100);
-}
-
-/* ============ AWARDS / CONTACT CARDS (index.html) ============ */
-
-.container > .row .card {
-  background-color: var(--surface-subtle);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-}
-
-.container > .row .card-header {
-  background-color: transparent;
-  border-bottom: 0;
-  padding: var(--space-2xl) var(--space-2xl) 0;
-}
-
-.container > .row .card-header h3 {
-  text-align: center;
-  font-family: var(--font-subheading);
-  font-weight: 600;
-  font-size: var(--size-2xl);
-}
-
-.container > .row .card-body {
-  padding: var(--space-2xl);
-}
-
-/* ============ FAKTORY: HERO BAND ============ */
-
-.faktory-hero {
-  background-color: var(--surface-subtle);
-  padding: var(--space-6xl) 0;
-  margin-bottom: var(--space-5xl);
-}
-
-.faktory-hero h2 {
-  font-family: var(--type-h2-family);
-  font-weight: var(--type-h2-weight);
-  font-size: var(--type-h2-size);
-  color: var(--text-default);
-  margin-top: var(--space-2xl);
-}
-
-.faktory-hero .m-btm {
   margin-bottom: var(--space-2xl);
 }
 
-/* ============ FAKTORY: TWEET GRID ============ */
-/* The two-col tweet screenshot row; make the images respect the grid. */
+.product-card__logo {
+  display: block;
+  margin: 0 auto var(--space-l);
+}
 
-.container.mt-5 .row > .col > a > img {
+.product-card__logo img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+}
+
+.product-card__tagline {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-style: italic;
+  font-size: var(--size-l);
+  color: var(--text-default);
+  line-height: 1.35;
+  margin: 0 auto;
+  max-width: 26ch;
+}
+
+.product-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-2xl);
+  border-top: 1px solid var(--border-default);
+}
+
+.product-card__features li {
+  padding: var(--space-l) 0;
+  border-bottom: 1px solid var(--border-default);
+  font-size: var(--size-m);
+  color: var(--text-default);
+}
+
+.product-card__footer {
+  text-align: center;
+  margin-top: auto;
+}
+
+/* ============ OPEN SOURCE BAND ============ */
+
+.open-source {
+  background-color: var(--surface-subtle);
+  padding: var(--space-6xl) 0;
+  text-align: center;
+}
+
+.open-source__title {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-3xl);
+  line-height: 1.15;
+  color: var(--brand-primary);
+  max-width: 18ch;
+  margin: 0 auto var(--space-2xl);
+}
+
+.accent-orange {
+  color: var(--brand-accent);
+}
+
+.open-source__lead {
+  font-size: var(--type-body-l-size);
+  line-height: var(--type-body-l-line-height);
+  color: var(--text-default);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* ============ ABOUT MIKE ============ */
+
+.about-mike {
+  position: relative;
+  background-color: var(--surface-page);
+  padding: var(--space-6xl) 0;
+  overflow: hidden;
+}
+
+.about-mike__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: var(--space-5xl);
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-mike__text {
+  flex: 1 1 420px;
+  max-width: 560px;
+}
+
+.about-mike__title {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-2xl);
+  color: var(--text-default);
+  margin-bottom: var(--space-l);
+}
+
+.about-mike__text p {
+  font-size: var(--size-m);
+  line-height: 1.5;
+  color: var(--text-default);
+  margin-bottom: var(--space-l);
+}
+
+.about-mike__portrait {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.about-mike__portrait img {
+  width: 240px;
+  height: 240px;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--cool-mint-700);
+  object-fit: cover;
+  display: block;
+}
+
+.about-mike__stripes--left { left: 0; }
+.about-mike__stripes--right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* ============ FOOTER ============ */
+
+.site-footer {
+  background-color: var(--cool-mint-900);
+  color: var(--text-on-inverse);
+  padding: var(--space-5xl) 0;
+}
+
+.site-footer .site-footer__row {
+  align-items: flex-start;
+}
+
+.site-footer__heading {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-m);
+  color: var(--text-on-inverse);
+  margin-bottom: var(--space-l);
+}
+
+.site-footer__col p,
+.site-footer__col a {
+  color: var(--cool-mint-200);
+  font-family: var(--font-details);
+  font-size: var(--size-xs);
+  line-height: 1.5;
+}
+
+.site-footer__col a {
+  text-decoration: underline;
+}
+
+.site-footer__col a:hover {
+  color: var(--soft-apricot-300);
+}
+
+.site-footer__badges {
+  display: flex;
+  gap: var(--space-l);
+  align-items: center;
+}
+
+.site-footer__badges img {
+  height: 70px;
+  width: auto;
+}
+
+.site-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-l);
+  text-align: right;
+}
+
+.site-footer__links li {
+  margin-bottom: var(--space-xs);
+}
+
+.site-footer__social {
+  text-align: right;
+}
+
+.site-footer__legal {
+  margin-top: var(--space-l);
+}
+
+/* ============ FAKTORY HERO ============ */
+
+.faktory-hero {
+  position: relative;
+  background-color: var(--surface-page);
+  padding: var(--space-5xl) 0;
+  overflow: hidden;
+}
+
+.faktory-hero__stripes--right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 260px;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--cool-mint-300) 0,
+    var(--cool-mint-300) 28px,
+    transparent 28px,
+    transparent 56px,
+    var(--cool-mint-600) 56px,
+    var(--cool-mint-600) 84px,
+    transparent 84px,
+    transparent 112px
+  );
+  opacity: 0.8;
+}
+
+.faktory-hero__logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin-bottom: var(--space-2xl);
+}
+
+.faktory-hero__tagline {
+  font-family: var(--font-subheading);
+  font-weight: 400;
+  font-size: var(--size-l);
+  color: var(--text-default);
+  line-height: 1.4;
+  max-width: 36ch;
+}
+
+.faktory-hero__screenshot {
+  text-align: right;
+  position: relative;
+  z-index: 2;
+}
+
+.faktory-hero__ui {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ============ TESTIMONIALS ============ */
+
+.testimonials {
+  background-color: var(--cool-mint-900);
+  padding: var(--space-5xl) 0;
+  color: var(--text-on-inverse);
+}
+
+.testimonials__tweets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.testimonials__tweets img {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius-md);
 }
 
-/* ============ FAKTORY: COMPARISON TABLE ============ */
+.testimonials__aside {
+  display: flex;
+  align-items: center;
+}
 
-.table {
+.testimonials__eyebrow {
+  font-family: var(--font-details);
+  font-size: var(--size-s);
+  color: var(--cool-mint-200);
+  text-transform: none;
+  max-width: 20ch;
+}
+
+/* ============ COMPARE TABLE ============ */
+
+.compare {
+  padding: var(--space-6xl) 0;
+}
+
+.compare-table {
   font-family: var(--font-body);
   color: var(--text-default);
+  width: 100%;
 }
 
-.table thead th {
+.compare-table thead th {
   background-color: transparent;
   border-bottom: 2px solid var(--border-default);
-  font-family: var(--font-subheading);
-  font-weight: 600;
   padding: var(--space-l);
-}
-
-.table thead th h3 {
-  color: var(--cool-mint-700);
+  font-family: var(--font-subheading);
+  font-weight: 700;
   font-size: var(--size-2xl);
-  margin: 0;
+  color: var(--cool-mint-700);
+  text-align: center;
 }
 
-.table tbody td {
+.compare-table thead th:first-child {
+  text-align: left;
+}
+
+.compare-table thead th a {
+  color: var(--cool-mint-700);
+}
+
+.compare-table tbody td {
   padding: var(--space-l);
   border-color: var(--border-default);
   vertical-align: middle;
+  text-align: center;
 }
 
-.table.table-striped tbody tr:nth-of-type(odd) {
+.compare-table tbody td.key,
+.compare-table tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.compare-table tbody tr:nth-of-type(odd) {
   background-color: var(--cool-grey-50);
 }
 
-.table td.key {
-  font-weight: 600;
-  color: var(--text-default);
+.compare-table .fa-check-circle {
+  color: var(--cool-mint-700);
+  font-size: 1.25em;
 }
 
-/* Check / ban icon colors overridden from inline page <style> when markup is
-   updated to rely on this file. */
-.table .fa-check-circle { color: var(--cool-mint-700); }
-.table .fa-ban          { color: var(--dusty-orange-700); }
-
-.table tfoot th {
-  background-color: transparent;
-  border-top: 2px solid var(--border-default);
-  padding: var(--space-2xl) var(--space-l);
+.compare-table .fa-ban {
+  color: var(--dusty-orange-700);
+  font-size: 1.25em;
 }
 
-.table tfoot .btn-primary {
-  background-color: var(--soft-apricot-300);
-  border-color: var(--soft-apricot-300);
-  color: var(--text-default);
-  border-radius: 999px;
-  font-family: var(--font-subheading);
-  font-weight: 600;
+.compare__cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin: var(--space-3xl) 0 var(--space-l);
 }
 
-.table tfoot .btn-primary:hover,
-.table tfoot .btn-primary:focus {
-  background-color: var(--soft-apricot-500);
-  border-color: var(--soft-apricot-500);
-  color: var(--text-default);
+.compare__note {
+  text-align: center;
+  font-size: var(--size-s);
+  color: var(--text-muted);
 }
 
-.table tfoot .btn-success {
-  background-color: var(--cool-mint-800);
-  border-color: var(--cool-mint-800);
-  color: var(--text-on-inverse);
-  border-radius: 999px;
-  font-family: var(--font-subheading);
-  font-weight: 600;
-}
+/* ============ INFO BAND (More Info + Newsletter) ============ */
 
-.table tfoot .btn-success:hover,
-.table tfoot .btn-success:focus {
-  background-color: var(--cool-mint-900);
-  border-color: var(--cool-mint-900);
-  color: var(--text-on-inverse);
-}
-
-/* ============ FAKTORY: MORE INFO + NEWSLETTER CARDS ============ */
-
-.container.my-5 .card {
+.info-band {
+  position: relative;
   background-color: var(--surface-subtle);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
+  padding: var(--space-6xl) 0;
   overflow: hidden;
 }
 
-.container.my-5 .card-header {
-  background-color: transparent;
-  border-bottom: 1px solid var(--border-default);
-  padding: var(--space-2xl);
+.info-band__stripes--left { left: 0; }
+.info-band__stripes--right {
+  right: 0;
+  transform: scaleX(-1);
 }
 
-.container.my-5 .card-header .card-title {
+.info-card {
+  background-color: var(--surface-page);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl);
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.info-card__header {
+  text-align: center;
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: var(--space-l);
+  margin-bottom: var(--space-l);
+}
+
+.info-card__header h3 {
   font-family: var(--font-subheading);
-  font-weight: 600;
+  font-weight: 700;
   font-size: var(--size-2xl);
+  color: var(--text-default);
   margin: 0;
 }
 
-.container.my-5 .card-body {
-  padding: var(--space-2xl);
-  font-size: var(--type-body-l-size);
-  line-height: var(--type-body-l-line-height);
+.info-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.container.my-5 .list-group-flush .list-group-item {
-  border-color: var(--border-default);
-  padding: var(--space-l) var(--space-2xl);
-  background-color: transparent;
+.info-card__list li {
+  padding: var(--space-m) 0;
+  border-bottom: 1px solid var(--border-default);
 }
 
-.container.my-5 .list-group-flush .list-group-item a.link,
-.container.my-5 .list-group-flush .list-group-item a {
+.info-card__list li:last-child {
+  border-bottom: 0;
+}
+
+.info-card__list a {
   color: var(--text-default);
+  font-size: var(--size-m);
 }
 
-.container.my-5 .list-group-flush .list-group-item a:hover {
+.info-card__list a:hover {
   color: var(--brand-accent);
 }
 
-/* Newsletter form */
-.container.my-5 form input[type="text"],
-.container.my-5 form input[type="email"] {
+.info-card__body p {
+  font-size: var(--size-m);
+  line-height: 1.5;
+  color: var(--text-default);
+  margin-bottom: var(--space-l);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-s);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1 1 200px;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
   padding: var(--space-s) var(--space-l);
   font-family: var(--font-body);
   font-size: var(--size-m);
   background-color: var(--surface-page);
-  margin-right: var(--space-s);
 }
 
-.container.my-5 form input[type="text"]:focus,
-.container.my-5 form input[type="email"]:focus {
+.newsletter-form input[type="email"]:focus {
   outline: 0;
   border-color: var(--brand-primary);
 }
 
-.container.my-5 form input[type="submit"] {
-  background-color: var(--soft-apricot-500);
-  border: 0;
-  color: var(--text-default);
-  font-family: var(--font-subheading);
-  font-weight: 600;
-  border-radius: 999px;
-  padding: var(--space-s) var(--space-2xl);
-  cursor: pointer;
-}
+/* ============ RESPONSIVE ============ */
 
-.container.my-5 form input[type="submit"]:hover {
-  background-color: var(--soft-apricot-600);
-}
+@media (max-width: 767.98px) {
+  .hero__stripes,
+  .about-mike__stripes,
+  .faktory-hero__stripes,
+  .info-band__stripes {
+    width: 80px;
+    opacity: 0.6;
+  }
 
-/* ============ FOOTER ============ */
+  .about-mike__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-footer {
-  padding-top: var(--space-5xl);
-  padding-bottom: var(--space-5xl);
-  font-family: var(--font-details);
-  font-size: var(--type-details-size);
-  line-height: var(--type-details-line-height);
-  color: var(--text-muted);
-}
+  .about-mike__portrait img {
+    width: 200px;
+    height: 200px;
+  }
 
-footer a {
-  color: var(--text-muted);
-}
+  .site-footer__row > .col-md-4 {
+    margin-bottom: var(--space-2xl);
+  }
 
-footer a:hover {
-  color: var(--text-link);
-}
+  .site-footer__links,
+  .site-footer__social {
+    text-align: left;
+  }
 
-/* ============ GENERIC BUTTON RESETS ============ */
-/* Bootstrap's .btn-primary/.btn-success base; brand defaults so any stray
-   buttons not covered above still feel on-system. */
+  .faktory-hero__screenshot {
+    text-align: center;
+    margin-top: var(--space-2xl);
+  }
 
-.btn {
-  font-family: var(--font-subheading);
-  font-weight: 600;
-  border-radius: 999px;
-}
-
-.btn-primary {
-  background-color: var(--brand-primary);
-  border-color: var(--brand-primary);
-  color: var(--text-on-inverse);
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:not(:disabled):not(.disabled):active {
-  background-color: var(--brand-primary-hover);
-  border-color: var(--brand-primary-hover);
-  color: var(--text-on-inverse);
+  .compare__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
