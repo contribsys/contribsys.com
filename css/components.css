@@ -103,7 +103,7 @@
 .hero {
   position: relative;
   background-color: var(--surface-page);
-  padding: var(--space-6xl) 0;
+  padding: calc(var(--space-6xl) * 2) 0;
   overflow: hidden;
   text-align: center;
   border-top: 2px solid var(--border-default);
