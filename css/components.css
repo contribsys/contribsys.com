@@ -187,10 +187,14 @@
   margin-bottom: var(--space-6xl);
 }
 
-/* ============ PRODUCT CARDS ============ */
+/* ============ CARD PANEL (shared base for product-card, info-card, etc.) ============
+   A card with a mint body, a slightly darker mint header that goes
+   wall-to-wall, a bordered list section, and a footer anchored to the
+   bottom. Variant classes layer feature-specific styling on top. */
 
-.product-card {
+.card-panel {
   background-color: var(--cool-mint-50);
+  border: 2px solid var(--border-default);
   border-radius: var(--radius-lg);
   height: 100%;
   display: flex;
@@ -198,10 +202,58 @@
   overflow: hidden;
 }
 
-.product-card__header {
+.card-panel__header {
   background-color: var(--cool-mint-100);
-  padding: var(--space-4xl) var(--space-3xl);
+  padding: var(--space-3xl);
   text-align: center;
+}
+
+.card-panel__header h3 {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-2xl);
+  color: var(--text-default);
+  margin: 0;
+}
+
+.card-panel__body {
+  padding: var(--space-3xl);
+}
+
+.card-panel__body > p {
+  padding-bottom: var(--space-3xl);
+}
+
+.card-panel__body > p:last-child {
+  padding-bottom: 0;
+}
+
+.card-panel__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--space-3xl) var(--space-3xl);
+}
+
+.card-panel__list li {
+  padding: var(--space-l) 0;
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-default);
+}
+
+.card-panel__list li:last-child {
+  border-bottom: 0;
+}
+
+.card-panel__footer {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-3xl) var(--space-4xl);
+  margin-top: auto;
+}
+
+/* ============ PRODUCT CARDS — variant of .card-panel ============ */
+
+.product-card__header {
+  padding: var(--space-4xl) var(--space-3xl);
 }
 
 .product-card__logo {
@@ -217,33 +269,10 @@
 
 .product-card__tagline {
   font-style: italic;
-  font-size: var(--size-l);
   color: var(--text-default);
   line-height: 1.35;
   margin: var(--space-2xl) auto var(--space-s);
   max-width: 26ch;
-}
-
-.product-card__features {
-  list-style: none;
-  margin: 0;
-  padding: 0 var(--space-3xl);
-}
-
-.product-card__features li {
-  padding: var(--space-l) 0;
-  border-bottom: 1px solid var(--border-default);
-  color: var(--text-default);
-}
-
-.product-card__features li:last-child {
-  border-bottom: 0;
-}
-
-.product-card__footer {
-  text-align: center;
-  padding: var(--space-2xl) var(--space-3xl) var(--space-4xl);
-  margin-top: auto;
 }
 
 /* ============ OPEN SOURCE BAND ============ */
@@ -343,6 +372,7 @@
 .site-footer__heading {
   font-family: var(--font-heading);
   font-weight: 400;
+  font-size: var(--size-m);
   color: var(--cool-mint-800);
   margin-bottom: var(--space-l);
 }
@@ -393,6 +423,7 @@
 }
 
 .site-footer__legal {
+  font-size: var(--size-xs);
   margin-top: var(--space-l);
 }
 
@@ -577,57 +608,28 @@
   overflow: hidden;
 }
 
+/* ============ INFO CARDS — variant of .card-panel ============ */
+
 .info-card {
-  background-color: var(--surface-page);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3xl);
-  height: 100%;
   position: relative;
   z-index: 2;
   box-shadow: 0 8px 24px rgba(8, 72, 75, 0.08);
 }
 
-.info-card__header {
-  text-align: center;
-  border-bottom: 1px solid var(--border-default);
-  padding-bottom: var(--space-l);
-  margin-bottom: var(--space-l);
-}
-
-.info-card__header h3 {
-  font-family: var(--font-subheading);
-  font-weight: 700;
-  font-size: var(--size-2xl);
-  color: var(--text-default);
-  margin: 0;
-}
-
-.info-card__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.info-card__list li {
+.info-card .card-panel__list li {
   padding: var(--space-m) 0;
-  border-bottom: 1px solid var(--border-default);
 }
 
-.info-card__list li:last-child {
-  border-bottom: 0;
-}
-
-.info-card__list a {
+.info-card .card-panel__list a {
   color: var(--text-default);
 }
 
-.info-card__list a:hover {
+.info-card .card-panel__list a:hover {
   color: var(--brand-accent);
 }
 
-.info-card__body p {
+.info-card .card-panel__body p {
   line-height: 1.5;
-  color: var(--text-default);
   margin-bottom: var(--space-l);
 }
 
