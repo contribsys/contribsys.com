@@ -151,8 +151,8 @@
   --text-link:       var(--dusty-orange-800);
   --text-link-hover: var(--dusty-orange-900);
 
-  --border-default: var(--cool-grey-200);
-  --border-strong:  var(--cool-mint-600);
+  --border-default: var(--cool-grey-100);
+  --border-strong:  var(--cool-mint-700);
 
   /* ============ TYPE ROLES ============ */
   --type-hero-family:      var(--font-heading);
