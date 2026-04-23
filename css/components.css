@@ -322,6 +322,10 @@
 
 .product-card__header {
   padding: var(--space-4xl) var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 260px;
 }
 
 .product-card__logo {
