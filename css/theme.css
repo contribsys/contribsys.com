@@ -149,9 +149,9 @@
   --text-muted:      var(--taupe-800);
   --text-on-inverse: var(--cool-grey-25);
   --text-link:       var(--dusty-orange-800);
-  --text-link-hover: var(--dusty-orange-900);
+  --text-link-hover: var(--dusty-orange-700);
 
-  --border-default: var(--cool-grey-100);
+  --border-default: var(--cool-mint-300);
   --border-strong:  var(--cool-mint-700);
 
   /* ============ TYPE ROLES ============ */
