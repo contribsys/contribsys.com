@@ -55,14 +55,18 @@
 
 /* Themed hamburger toggler (collapsed nav below lg breakpoint) */
 .site-header .navbar-toggler {
-  border: 2px solid var(--cool-mint-800);
-  border-radius: var(--radius-sm);
+  border: 0;
   padding: var(--space-xs) var(--space-sm);
   background-color: transparent;
   cursor: pointer;
 }
 
 .site-header .navbar-toggler:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.site-header .navbar-toggler:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 3px var(--cool-mint-300);
 }
