@@ -99,7 +99,11 @@
 }
 
 .site-nav .nav-link:hover,
-.site-nav .nav-link:focus,
+.site-nav .nav-link:focus {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
 .site-nav .nav-link.active {
   color: var(--brand-primary);
 }
