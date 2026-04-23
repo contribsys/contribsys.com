@@ -132,7 +132,7 @@
 
   /* ============ SEMANTIC ALIASES ============ */
   --brand-primary: var(--cool-mint-800);
-  --brand-accent:  var(--dusty-orange-600);
+  --brand-accent:  var(--dusty-orange-700);
 
   --surface-page:   var(--faded-lemon-50);
   --surface-subtle: var(--soft-apricot-50);
