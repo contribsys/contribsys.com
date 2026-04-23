@@ -9,7 +9,7 @@
 /* ============ HEADER / NAV ============ */
 
 .site-header {
-  padding: var(--space-l) 0;
+  padding: var(--space-lg) 0;
   background-color: var(--surface-page);
 }
 
@@ -42,7 +42,7 @@
   .site-header .site-nav .nav-link,
   .site-header .site-nav-cta .nav-link:not(.btn-pill) {
     margin: 0;
-    padding: var(--space-xs) var(--space-l);
+    padding: var(--space-xs) var(--space-lg);
   }
 
   .site-header .site-nav-cta .nav-link.btn-pill {
@@ -54,7 +54,7 @@
 .site-header .navbar-toggler {
   border: 2px solid var(--cool-mint-800);
   border-radius: var(--radius-sm);
-  padding: var(--space-xs) var(--space-s);
+  padding: var(--space-xs) var(--space-sm);
   background-color: transparent;
   cursor: pointer;
 }
@@ -91,14 +91,14 @@
   font-weight: 400;
   font-size: var(--size-xl);
   color: var(--brand-primary);
-  padding: var(--space-s) var(--space-l);
-  margin: var(--space-xs) var(--space-l);
+  padding: var(--space-sm) var(--space-lg);
+  margin: var(--space-xs) var(--space-lg);
 }
 
 .site-nav-cta .nav-link.btn-pill {
-  font-size: var(--size-l);
+  font-size: var(--size-lg);
   color: var(--cool-mint-900);
-  padding: var(--space-s) var(--space-2xl);
+  padding: var(--space-sm) var(--space-2xl);
 }
 
 .site-nav .nav-link:hover,
@@ -113,11 +113,11 @@
 }
 
 .site-nav-cta {
-  gap: var(--space-s);
+  gap: var(--space-sm);
 }
 
 .site-nav-cta .nav-item + .nav-item {
-  margin-left: var(--space-s);
+  margin-left: var(--space-sm);
 }
 
 /* ============ PILL BUTTON SYSTEM ============ */
@@ -127,7 +127,7 @@
   font-family: var(--font-heading);
   font-weight: 400;
   border-radius: var(--radius-md);
-  padding: var(--space-s) var(--space-2xl);
+  padding: var(--space-sm) var(--space-2xl);
   border: 0;
   line-height: 1.2;
   text-align: center;
@@ -313,7 +313,7 @@
 }
 
 .card-panel__list li {
-  padding: var(--space-l) 0;
+  padding: var(--space-lg) 0;
   border-bottom: 2px solid var(--border-default);
   color: var(--text-default);
 }
@@ -340,7 +340,7 @@
 
 .product-card__logo {
   display: block;
-  margin: 0 auto var(--space-l);
+  margin: 0 auto var(--space-lg);
 }
 
 .product-card__logo img {
@@ -353,7 +353,7 @@
   font-style: italic;
   color: var(--text-default);
   line-height: 1.35;
-  margin: var(--space-2xl) auto var(--space-s);
+  margin: var(--space-2xl) auto var(--space-sm);
   max-width: 26ch;
 }
 
@@ -422,13 +422,13 @@
   font-weight: 700;
   font-size: var(--size-2xl);
   color: var(--cool-grey-950);
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-lg);
 }
 
 .about-mike__text p {
   line-height: 1.5;
   color: var(--text-default);
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-lg);
 }
 
 .about-mike__portrait {
@@ -460,9 +460,9 @@
 .site-footer__heading {
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: var(--size-m);
+  font-size: var(--size-md);
   color: var(--cool-mint-700);
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-lg);
 }
 
 .site-footer__col,
@@ -485,7 +485,7 @@
 
 .site-footer__badges {
   display: flex;
-  gap: var(--space-l);
+  gap: var(--space-lg);
   align-items: center;
 }
 
@@ -497,13 +497,13 @@
 .site-footer__links {
   list-style: none;
   padding: 0;
-  margin: 0 0 var(--space-l);
+  margin: 0 0 var(--space-lg);
   text-align: right;
 }
 
 .site-footer__links li {
   display: inline-block;
-  margin-left: var(--space-l);
+  margin-left: var(--space-lg);
 }
 
 .site-footer__social {
@@ -512,7 +512,7 @@
 
 .site-footer__legal {
   font-size: var(--size-xs);
-  margin-top: var(--space-l);
+  margin-top: var(--space-lg);
 }
 
 /* ============ FAKTORY HERO ============ */
@@ -557,7 +557,7 @@
 .faktory-hero__tagline {
   font-family: var(--font-subheading);
   font-weight: 400;
-  font-size: var(--size-l);
+  font-size: var(--size-lg);
   color: var(--text-default);
   line-height: 1.4;
   max-width: 36ch;
@@ -585,7 +585,7 @@
 .testimonials__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-l);
+  gap: var(--space-lg);
   align-items: start;
 }
 
@@ -607,7 +607,7 @@
   line-height: 1.5;
   color: var(--cool-mint-200);
   margin: 0;
-  padding: var(--space-l) 0;
+  padding: var(--space-lg) 0;
   /* text-align: center; */
   order: -1;
   max-width: none;
@@ -620,7 +620,7 @@
   .testimonials__eyebrow {
     order: 0;
     max-width: 22ch;
-    padding-left: var(--space-m);
+    padding-left: var(--space-md);
     text-align: left;
     margin-bottom: unset;
   }
@@ -649,7 +649,7 @@
 
 .compare-table thead th {
   background-color: transparent;
-  padding: var(--space-l);
+  padding: var(--space-lg);
   font-family: var(--font-subheading);
   font-weight: 700;
   font-size: var(--size-2xl);
@@ -666,7 +666,7 @@
 }
 
 .compare-table tbody td {
-  padding: var(--space-l);
+  padding: var(--space-lg);
   vertical-align: middle;
   text-align: center;
 }
@@ -703,12 +703,12 @@
   display: flex;
   justify-content: center;
   gap: var(--space-2xl);
-  margin: var(--space-3xl) 0 var(--space-l);
+  margin: var(--space-3xl) 0 var(--space-lg);
 }
 
 .compare__note {
   text-align: center;
-  font-size: var(--size-s);
+  font-size: var(--size-sm);
 }
 
 /* ============ INFO BAND (More Info + Newsletter) ============ */
@@ -729,7 +729,7 @@
 }
 
 .info-card .card-panel__list li {
-  padding: var(--space-m) 0;
+  padding: var(--space-md) 0;
 }
 
 .info-card .card-panel__list a {
@@ -746,7 +746,7 @@
 
 .newsletter-form {
   display: flex;
-  gap: var(--space-s);
+  gap: var(--space-sm);
   align-items: center;
   flex-wrap: wrap;
 }
@@ -755,7 +755,7 @@
   flex: 1 1 200px;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  padding: var(--space-s) var(--space-l);
+  padding: var(--space-sm) var(--space-lg);
   font-family: var(--font-body);
   background-color: var(--surface-page);
 }
@@ -800,11 +800,11 @@
   .site-footer__col,
   .site-footer__col p,
   .site-footer__legal {
-    font-size: var(--size-s);
+    font-size: var(--size-sm);
   }
 
   .site-footer__heading {
-    font-size: var(--size-l);
+    font-size: var(--size-lg);
   }
 
   .site-footer__links,
@@ -813,12 +813,12 @@
   }
 
   .site-footer__links {
-    margin-bottom: var(--space-l);
+    margin-bottom: var(--space-lg);
   }
 
   .site-footer__links li {
     margin-left: 0;
-    margin-right: var(--space-l);
+    margin-right: var(--space-lg);
   }
 
   .faktory-hero__screenshot {

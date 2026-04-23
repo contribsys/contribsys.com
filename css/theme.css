@@ -4,6 +4,14 @@
    (Contributed Systems Redesign). Layered on top of Bootstrap 4.4.1.
 
    Load order: bootstrap.css → theme.css → components.css
+
+   Scale suffix convention (Tailwind style):
+     sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl
+
+   Breakpoints (hardcoded in @media since CSS custom properties cannot be
+   consumed by media queries):
+     Tablet = <992px (Bootstrap lg)
+     Mobile = <768px (Bootstrap md)
    ========================================================================== */
 
 :root {
@@ -94,22 +102,22 @@
   --font-body:       "Figtree", system-ui, sans-serif;
   --font-details:    "Azeret Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Type sizes — Desktop values; overridden at Tablet/Mobile below */
+  /* Type sizes — Desktop values; overridden at Mobile below */
   --size-xs:  12px;
-  --size-s:   14px;
-  --size-m:   16px;
-  --size-l:   18px;
+  --size-sm:  14px;
+  --size-md:  16px;
+  --size-lg:  18px;
   --size-xl:  24px;
   --size-2xl: 32px;
   --size-3xl: 40px;
   --size-4xl: 72px;
   --size-5xl: 80px;
 
-  /* Spacing — Desktop */
+  /* Spacing — Desktop; overridden at Tablet and Mobile below */
   --space-xs:  8px;
-  --space-s:   10px;
-  --space-m:   14px;
-  --space-l:   16px;
+  --space-sm:  10px;
+  --space-md:  14px;
+  --space-lg:  16px;
   --space-xl:  20px;
   --space-2xl: 24px;
   --space-3xl: 28px;
@@ -117,37 +125,20 @@
   --space-5xl: 40px;
   --space-6xl: 72px;
 
-  /* Icon / control dimensions */
-  --dim-xs:  12px;
-  --dim-s:   14px;
-  --dim-m:   16px;
-  --dim-l:   18px;
-  --dim-xl:  24px;
-  --dim-2xl: 32px;
-  --dim-3xl: 48px;
-  --dim-4xl: 72px;
-  --dim-5xl: 80px;
-
-  /* Radii — proposed (no radius tokens in Figma) */
+  /* Radii */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-xl: 20px;
 
   /* ============ SEMANTIC ALIASES ============ */
-  --brand-primary:       var(--cool-mint-800);
-  --brand-primary-hover: var(--cool-mint-900);
-  --brand-accent:        var(--dusty-orange-600);
-  --brand-highlight:     var(--soft-apricot-500);
+  --brand-primary: var(--cool-mint-800);
+  --brand-accent:  var(--dusty-orange-600);
 
-  --surface-page:    var(--faded-lemon-50);
-  --surface-subtle:  var(--soft-apricot-50);
-  --surface-inverse: var(--cool-mint-800);
-  --surface-card:    var(--cool-grey-25);
+  --surface-page:   var(--faded-lemon-50);
+  --surface-subtle: var(--soft-apricot-50);
 
   --text-default:    var(--cool-grey-950);
-  --text-accent:    var(--cool-mint-900);
-  --text-muted:      var(--taupe-800);
+  --text-accent:     var(--cool-mint-900);
   --text-on-inverse: var(--cool-grey-25);
   --text-link:       var(--dusty-orange-800);
   --text-link-hover: var(--dusty-orange-700);
@@ -171,28 +162,18 @@
   --type-h3-line-height: 1.25;
   --type-h3-weight:      400;
 
-  --type-body-l-size:         var(--size-l);
-  --type-body-l-line-height:  1.333;
-
   --type-body-xl-size:        var(--size-xl);
   --type-body-xl-line-height: 1.333;
-
-  --type-details-family:      var(--font-details);
-  --type-details-size:        var(--size-xs);
-  --type-details-line-height: 1.5;
 }
 
 /* ============ RESPONSIVE OVERRIDES ============ */
-/* Figma breakpoints mapped to Bootstrap 4:
-     Tablet = <992px (lg)
-     Mobile = <768px (md) */
 
 @media (max-width: 991.98px) {
   :root {
     --space-xs:  6px;
-    --space-s:   8px;
-    --space-m:   10px;
-    --space-l:   14px;
+    --space-sm:  8px;
+    --space-md:  10px;
+    --space-lg:  14px;
     --space-xl:  16px;
     --space-2xl: 20px;
     --space-3xl: 24px;
@@ -205,14 +186,25 @@
 @media (max-width: 767.98px) {
   :root {
     --size-xs:  10px;
-    --size-s:   12px;
-    --size-m:   14px;
-    --size-l:   16px;
+    --size-sm:  12px;
+    --size-md:  14px;
+    --size-lg:  16px;
     --size-xl:  18px;
     --size-2xl: 24px;
     --size-3xl: 30px;
     --size-4xl: 48px;
     --size-5xl: 72px;
+
+    --space-xs:  4px;
+    --space-sm:  6px;
+    --space-md:  8px;
+    --space-lg:  12px;
+    --space-xl:  14px;
+    --space-2xl: 16px;
+    --space-3xl: 20px;
+    --space-4xl: 24px;
+    --space-5xl: 28px;
+    --space-6xl: 32px;
   }
 }
 
@@ -220,7 +212,7 @@
 
 body {
   font-family: var(--font-body);
-  font-size: var(--size-l);
+  font-size: var(--size-lg);
   line-height: 1.4;
   color: var(--text-default);
   background-color: var(--surface-page);
