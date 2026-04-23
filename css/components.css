@@ -2,13 +2,8 @@
    components.css
    Component-level styling layered over Bootstrap 4.4.1 and theme.css tokens.
    ========================================================================== */
-
-/* Default visual treatment for content images — a 2px default-color border.
-   Site chrome (logo, toggler, hamburger bars) is not an image. Components
-   that want a borderless image (e.g. badges, decorative assets inside their
-   own frame) can override per-component. */
-.container img {
-  border: 2px solid var(--border-default);
+.container img.decorate {
+  border: 2px solid var(--border-strong);
 }
 
 /* ============ HEADER / NAV ============ */
@@ -95,7 +90,7 @@
   font-family: var(--font-subheading);
   font-weight: 400;
   font-size: var(--size-xl);
-  color: var(--text-default);
+  color: var(--brand-primary);
   padding: var(--space-s) var(--space-l);
   margin: var(--space-xs) var(--space-l);
 }
@@ -114,6 +109,7 @@
 
 .site-nav .nav-link.active {
   color: var(--brand-primary);
+  text-decoration: underline;
 }
 
 .site-nav-cta {
@@ -147,7 +143,7 @@
 
 .btn-pill--accent {
   background-color: var(--soft-apricot-200);
-  color: var(--text-default);
+  color: var(--text-accent);
   border: 2px solid var(--soft-apricot-300);
 }
 
@@ -304,6 +300,12 @@
   padding-bottom: 0;
 }
 
+.card-panel__rule {
+  border: 0;
+  border-top: 2px solid var(--border-default);
+  padding: 0 0 var(--space-3xl) 0;
+}
+
 .card-panel__list {
   list-style: none;
   margin: 0;
@@ -312,7 +314,7 @@
 
 .card-panel__list li {
   padding: var(--space-l) 0;
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 2px solid var(--border-default);
   color: var(--text-default);
 }
 
@@ -740,7 +742,6 @@
 
 .info-card .card-panel__body p {
   line-height: 1.5;
-  margin-bottom: var(--space-l);
 }
 
 .newsletter-form {

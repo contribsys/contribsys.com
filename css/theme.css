@@ -145,7 +145,8 @@
   --surface-inverse: var(--cool-mint-800);
   --surface-card:    var(--cool-grey-25);
 
-  --text-default:    var(--cool-mint-800);
+  --text-default:    var(--cool-grey-950);
+  --text-accent:    var(--cool-mint-900);
   --text-muted:      var(--taupe-800);
   --text-on-inverse: var(--cool-grey-25);
   --text-link:       var(--dusty-orange-800);
