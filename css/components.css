@@ -525,21 +525,19 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 40%;
+  aspect-ratio: 537 / 604;
   pointer-events: none;
   background-image: url("../images/mint-stripe-right.svg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
 }
 
 .mint__stripes--right {
   right: 0;
-  background-position: right center;
 }
 
 .mint__stripes--left {
   left: 0;
-  background-position: right center;
   transform: scaleX(-1);
 }
 
