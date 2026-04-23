@@ -2,7 +2,11 @@
    components.css
    Component-level styling layered over Bootstrap 4.4.1 and theme.css tokens.
    ========================================================================== */
-.container img.decorate {
+
+/* Content image outline — applied to non-chrome imagery (logos inside
+   product/info cards, screenshots, photos, badges) via the .framed
+   utility. Logos and fixed-fit marks in site chrome do not get this. */
+.framed {
   border: 2px solid var(--border-strong);
 }
 
@@ -21,8 +25,7 @@
   margin-right: var(--space-3xl);
 }
 
-.site-header .navbar-brand img,
-.site-header .navbar-brand object {
+.site-header .navbar-brand img {
   display: block;
   height: 54px;
   width: auto;
@@ -201,18 +204,12 @@
   margin: 0 auto;
 }
 
-/* Diagonal stripe decoration. The SVG authors stripes running from the
-   top-left corner of its 498×604 viewBox down-right. Background size is
-   fixed to the SVG's natural dimensions so the stripe geometry doesn't
-   warp as the viewport narrows; we only adjust position. Position pins
-   the artwork's outer corner to the element's outer edge, so what gets
-   clipped on narrow viewports is the empty inner portion of the SVG. */
 /* Diagonal stripe decoration. The SVG scales height-first with its aspect
    ratio preserved, so its natural width after scaling depends on the
    section height. The element is sized to the SVG's aspect ratio so
    nothing clips, and pinned against the outer viewport edge. On narrow
-   viewports the stripes can overlap into content area — that's
-   accepted; content sits on top via z-index. */
+   viewports the stripes can overlap into content area — that's accepted;
+   content sits on top via z-index. */
 .orange__stripes {
   position: absolute;
   top: 0;

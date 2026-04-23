@@ -1,11 +1,5 @@
 <svg fill="none" height="54" viewBox="0 0 190 54" width="190" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
-  <style>
-    .lines, .curly.far, .curly.near { transition: transform 220ms ease; }
-    svg:hover .lines { transform: translateX(-4px); }
-    svg:hover .curly.far { transform: translateX(-2px); }
-    svg:hover .curly.near { transform: translateX(-1px); }
-  </style>
   <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="12.9014" x2="12.9014" y1="8.56158"
     y2="45.0342">
     <stop offset="0" stop-color="#e6ac57" />
