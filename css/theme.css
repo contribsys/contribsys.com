@@ -1,17 +1,17 @@
 /* ==========================================================================
    theme.css
    Design tokens + base element styling extracted from the Figma design system
-   (Contributed Systems Redesign). Layered on top of Bootstrap 4.4.1.
+   (Contributed Systems Redesign).
 
-   Load order: bootstrap.css → theme.css → components.css
+   Load order: base.css → fonts.css → theme.css → components.css
 
    Scale suffix convention (Tailwind style):
      sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl
 
    Breakpoints (hardcoded in @media since CSS custom properties cannot be
    consumed by media queries):
-     Tablet = <992px (Bootstrap lg)
-     Mobile = <768px (Bootstrap md)
+     Tablet = <992px
+     Mobile = <768px
    ========================================================================== */
 
 :root {
