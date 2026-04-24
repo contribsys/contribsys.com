@@ -51,6 +51,27 @@
   .site-header .site-nav-cta .nav-link.btn-pill {
     align-self: flex-end;
   }
+
+  /* Ease the hamburger menu open/closed instead of snapping. */
+  .site-header .navbar-collapse.collapse:not(.show) {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .site-header .navbar-collapse {
+    max-height: 500px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 250ms ease-out, opacity 200ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header .navbar-collapse {
+      transition: none;
+    }
+  }
 }
 
 /* Themed hamburger toggler (collapsed nav below lg breakpoint) */
