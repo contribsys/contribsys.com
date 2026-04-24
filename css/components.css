@@ -42,14 +42,22 @@
     align-items: flex-end;
   }
 
-  .site-header .site-nav .nav-link,
-  .site-header .site-nav-cta .nav-link:not(.btn-pill) {
-    margin: 0;
-    padding: var(--space-xs) var(--space-lg);
-  }
-
   .site-header .site-nav-cta .nav-link.btn-pill {
     align-self: flex-end;
+  }
+
+  /* Tighten line-height on plain links so extra half-leading doesn't
+     create uneven visual gaps next to the pills (which use 1.2). */
+  .site-header .site-nav .nav-link,
+  .site-header .site-nav-cta .nav-link:not(.btn-pill) {
+    line-height: 1.2;
+  }
+
+  /* Even vertical rhythm across both <ul> groups in the stacked menu.
+     Intra-group spacing already comes from .site-nav-cta's `gap`. */
+  .site-header .site-nav .nav-item + .nav-item,
+  .site-header .site-nav + .site-nav-cta {
+    margin-top: var(--space-sm);
   }
 
   /* Ease the hamburger menu open/closed instead of snapping. */
@@ -120,7 +128,13 @@
   font-size: var(--size-xl);
   color: var(--brand-primary);
   padding: var(--space-sm) var(--space-lg);
-  margin: var(--space-xs) var(--space-lg);
+}
+
+@media (min-width: 992px) {
+  .site-nav .nav-link,
+  .site-nav-cta .nav-link:not(.btn-pill) {
+    margin: var(--space-xs) var(--space-lg);
+  }
 }
 
 .site-nav-cta .nav-link.btn-pill {
