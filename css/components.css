@@ -1,0 +1,866 @@
+/* ==========================================================================
+   components.css
+   Component-level styling layered over theme.css tokens.
+   ========================================================================== */
+
+/* Content image outline — applied to non-chrome imagery (logos inside
+   product/info cards, screenshots, photos, badges) via the .framed
+   utility. Logos and fixed-fit marks in site chrome do not get this. */
+.framed {
+  border: 2px solid var(--border-strong);
+}
+
+/* ============ HEADER / NAV ============ */
+
+.site-header {
+  padding: var(--space-lg) 0;
+  background-color: var(--surface-page);
+}
+
+.site-header .navbar {
+  padding: 0;
+}
+
+.site-header .navbar-brand {
+  margin-right: var(--space-3xl);
+}
+
+.site-header .navbar-brand img {
+  display: block;
+  height: 54px;
+  width: auto;
+}
+
+/* Collapsed nav (below lg breakpoint) right-aligns under the hamburger. */
+@media (max-width: 991.98px) {
+  .site-header .navbar-collapse {
+    text-align: right;
+  }
+
+  .site-header .site-nav,
+  .site-header .site-nav-cta {
+    align-items: flex-end;
+  }
+
+  .site-header .site-nav-cta .nav-link.btn-pill {
+    align-self: flex-end;
+  }
+
+  /* Tighten line-height on plain links so extra half-leading doesn't
+     create uneven visual gaps next to the pills (which use 1.2). */
+  .site-header .site-nav .nav-link,
+  .site-header .site-nav-cta .nav-link:not(.btn-pill) {
+    line-height: 1.2;
+  }
+
+  /* Even vertical rhythm across both <ul> groups in the stacked menu.
+     Intra-group spacing already comes from .site-nav-cta's `gap`. */
+  .site-header .site-nav .nav-item + .nav-item,
+  .site-header .site-nav + .site-nav-cta {
+    margin-top: var(--space-sm);
+  }
+
+  /* Ease the hamburger menu open/closed instead of snapping. */
+  .site-header .navbar-collapse.collapse:not(.show) {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .site-header .navbar-collapse {
+    max-height: 500px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 250ms ease-out, opacity 200ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header .navbar-collapse {
+      transition: none;
+    }
+  }
+}
+
+/* Themed hamburger toggler (collapsed nav below lg breakpoint) */
+.site-header .navbar-toggler {
+  border: 0;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.site-header .navbar-toggler:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.site-header .navbar-toggler:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--cool-mint-300);
+}
+
+.site-header .navbar-toggler-icon {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: var(--cool-mint-800);
+  position: relative;
+}
+
+.site-header .navbar-toggler-icon::before,
+.site-header .navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background-color: var(--cool-mint-800);
+}
+
+.site-header .navbar-toggler-icon::before { top: -8px; }
+.site-header .navbar-toggler-icon::after  { top:  8px; }
+
+.site-nav .nav-link,
+.site-nav-cta .nav-link:not(.btn-pill) {
+  font-family: var(--font-subheading);
+  font-weight: 400;
+  font-size: var(--size-xl);
+  color: var(--brand-primary);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+@media (min-width: 992px) {
+  .site-nav .nav-link,
+  .site-nav-cta .nav-link:not(.btn-pill) {
+    margin: var(--space-xs) var(--space-lg);
+  }
+}
+
+.site-nav-cta .nav-link.btn-pill {
+  font-size: var(--size-lg);
+  color: var(--cool-mint-900);
+  padding: var(--space-sm) var(--space-2xl);
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+.site-nav .nav-link.active {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
+.site-nav-cta {
+  gap: var(--space-sm);
+}
+
+.site-nav-cta .nav-item + .nav-item {
+  margin-left: var(--space-sm);
+}
+
+/* ============ PILL BUTTON SYSTEM ============ */
+
+.btn-pill {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-2xl);
+  border: 0;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-pill:hover,
+.btn-pill:focus {
+  text-decoration: none;
+}
+
+.btn-pill--accent {
+  background-color: var(--soft-apricot-200);
+  color: var(--text-accent);
+  border: 2px solid var(--soft-apricot-300);
+}
+
+.btn-pill--accent:hover,
+.btn-pill--accent:focus {
+  background-color: var(--soft-apricot-500);
+  color: var(--text-default);
+}
+
+.btn-pill--primary {
+  background-color: var(--cool-mint-200);
+  border: 2px solid var(--cool-mint-400);
+  color: var(--cool-mint-900);
+}
+
+.btn-pill--primary:hover,
+.btn-pill--primary:focus {
+  background-color: var(--cool-mint-400);
+  color: var(--cool-mint-900);
+}
+
+/* ============ HERO ============ */
+
+.hero {
+  position: relative;
+  background-color: var(--surface-page);
+  padding: calc(var(--space-6xl) * 2) 0;
+  overflow: hidden;
+  text-align: center;
+  border-top: 2px solid var(--border-default);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
+  font-family: var(--type-hero-family);
+  font-size: var(--type-hero-size);
+  line-height: var(--type-hero-line-height);
+  font-weight: var(--type-hero-weight);
+  color: var(--brand-primary);
+  margin-bottom: var(--space-2xl);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__lead {
+  font-size: var(--type-body-xl-size);
+  line-height: var(--type-body-xl-line-height);
+  color: var(--text-default);
+  max-width: 40ch;
+  margin: 0 auto;
+}
+
+/* Diagonal stripe decoration. The SVG scales height-first with its aspect
+   ratio preserved, so its natural width after scaling depends on the
+   section height. The element is sized to the SVG's aspect ratio so
+   nothing clips, and pinned against the outer viewport edge. On narrow
+   viewports the stripes can overlap into content area — that's accepted;
+   content sits on top via z-index. */
+.orange__stripes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  aspect-ratio: 498 / 604;
+  pointer-events: none;
+  background-image: url("../images/orange-stripe.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.orange__stripes--left {
+  left: 0;
+}
+
+.orange__stripes--right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* ============ MINT BAND (dark teal section with horizontal stripe decoration) ============
+   Shared pattern for any full-width teal band that needs the horizontal
+   stripe backdrop. Apply `.mint-band` to any <section>; variant classes
+   layer on content-specific styling. */
+
+.mint-band {
+  background-color: var(--cool-mint-900);
+  background-image: url("../images/mint-horizontal-stripes.svg");
+  background-repeat: no-repeat;
+  background-position: center 55%;
+  background-size: 100% auto;
+  padding: var(--space-6xl) 0;
+  color: var(--text-on-inverse);
+}
+
+/* ============ PRODUCTS BAND ============ */
+
+.products-band__title {
+  text-align: center;
+  color: var(--text-on-inverse);
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-3xl);
+  margin-bottom: var(--space-6xl);
+}
+
+/* ============ CARD PANEL (shared base for product-card, info-card, etc.) ============
+   A card with a mint body, a slightly darker mint header that goes
+   wall-to-wall, a bordered list section, and a footer anchored to the
+   bottom. Variant classes layer feature-specific styling on top. */
+
+.card-panel {
+  background-color: var(--cool-mint-50);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-panel__header {
+  background-color: var(--cool-mint-100);
+  padding: var(--space-3xl);
+  text-align: center;
+}
+
+.card-panel__header h3 {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-2xl);
+  color: var(--text-default);
+  margin: 0;
+}
+
+.card-panel__body {
+  padding: var(--space-3xl);
+}
+
+.card-panel__body > p {
+  padding-bottom: var(--space-3xl);
+}
+
+.card-panel__body > p:last-child {
+  padding-bottom: 0;
+}
+
+.card-panel__rule {
+  border: 0;
+  border-top: 2px solid var(--border-default);
+  padding: 0 0 var(--space-3xl) 0;
+}
+
+.card-panel__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--space-3xl) var(--space-3xl);
+}
+
+.card-panel__list li {
+  padding: var(--space-lg) 0;
+  border-bottom: 2px solid var(--border-default);
+  color: var(--text-default);
+}
+
+.card-panel__list li:last-child {
+  border-bottom: 0;
+}
+
+.card-panel__footer {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-3xl) var(--space-4xl);
+  margin-top: auto;
+}
+
+/* ============ PRODUCT CARDS — variant of .card-panel ============ */
+
+.product-card__header {
+  padding: var(--space-4xl) var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 260px;
+}
+
+.product-card__logo {
+  display: block;
+  margin: 0 auto var(--space-lg);
+}
+
+.product-card__logo img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+}
+
+.product-card__tagline {
+  font-style: italic;
+  color: var(--text-default);
+  line-height: 1.35;
+  margin: var(--space-2xl) auto var(--space-sm);
+  max-width: 26ch;
+}
+
+/* ============ OPEN SOURCE BAND ============ */
+
+.open-source {
+  background-color: var(--surface-subtle);
+  padding: var(--space-6xl) 0;
+  text-align: center;
+}
+
+.open-source__title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--size-4xl);
+  line-height: 1;
+  color: var(--brand-primary);
+  max-width: 18ch;
+  margin: 0 auto var(--space-2xl);
+}
+
+@media (max-width: 991.98px) {
+  .open-source__title {
+    font-size: var(--size-3xl);
+  }
+}
+
+.accent-orange {
+  color: var(--brand-accent);
+}
+
+.open-source__lead {
+  font-size: var(--size-xl);
+  line-height: var(--size-2xl);
+  color: var(--text-default);
+  max-width: 60ch;
+  margin: var(--space-4xl) auto 0;
+}
+
+/* ============ ABOUT MIKE ============ */
+
+.about-mike {
+  position: relative;
+  background-color: var(--surface-page);
+  padding: var(--space-6xl) 0;
+  overflow: hidden;
+}
+
+.about-mike__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: var(--space-5xl);
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-mike__text {
+  flex: 1 1 420px;
+  max-width: 560px;
+}
+
+.about-mike__title {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-2xl);
+  color: var(--cool-grey-950);
+  margin-bottom: var(--space-lg);
+}
+
+.about-mike__text p {
+  line-height: 1.5;
+  color: var(--text-default);
+  margin-bottom: var(--space-lg);
+}
+
+.about-mike__portrait {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.about-mike__portrait img {
+  width: 240px;
+  height: 240px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  display: block;
+}
+
+/* ============ FOOTER ============ */
+
+.site-footer {
+  background-color: var(--surface-page);
+  color: var(--text-default);
+  padding: var(--space-5xl) 0;
+  border-top: 2px solid var(--border-default);
+}
+
+.site-footer .site-footer__row {
+  align-items: flex-start;
+}
+
+.site-footer__heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--size-md);
+  margin-bottom: var(--space-lg);
+}
+
+.site-footer__col,
+.site-footer__col p {
+  font-family: var(--font-details);
+  font-size: var(--size-xs);
+  line-height: 1.6;
+  color: var(--text-default);
+}
+
+.site-footer__col a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+.site-footer__col a:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+.site-footer__badges {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.site-footer__badges img {
+  height: 70px;
+  width: auto;
+}
+
+.site-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg);
+  text-align: right;
+}
+
+.site-footer__links li {
+  display: inline-block;
+  margin-left: var(--space-lg);
+}
+
+.site-footer__social {
+  text-align: right;
+}
+
+.site-footer__legal {
+  font-size: var(--size-xs);
+  margin-top: var(--space-lg);
+}
+
+/* ============ FAKTORY HERO ============ */
+
+.faktory-hero {
+  position: relative;
+  background-color: var(--surface-page);
+  padding: var(--space-6xl) 0;
+  overflow: hidden;
+}
+
+.mint__stripes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  aspect-ratio: 537 / 604;
+  pointer-events: none;
+  background-image: url("../images/mint-stripe-right.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.mint__stripes--right {
+  right: 0;
+}
+
+.mint__stripes--left {
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.faktory-hero__logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin-bottom: var(--space-2xl);
+}
+
+.faktory-hero__tagline {
+  font-family: var(--font-subheading);
+  font-weight: 400;
+  font-size: var(--size-lg);
+  color: var(--text-default);
+  line-height: 1.4;
+  max-width: 36ch;
+}
+
+.faktory-hero__screenshot {
+  text-align: right;
+  position: relative;
+  z-index: 2;
+}
+
+.faktory-hero__ui {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ============ TESTIMONIALS ============ */
+
+.testimonials {
+  padding: var(--space-6xl) 0;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .testimonials__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(225px, auto);
+    gap: var(--space-2xl);
+  }
+}
+
+.testimonials__tweet img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.testimonials__eyebrow {
+  font-family: var(--font-details);
+  line-height: 1.5;
+  color: var(--cool-mint-200);
+  margin: 0;
+  padding: var(--space-lg) 0;
+  /* text-align: center; */
+  order: -1;
+  max-width: none;
+  border-left: 2px solid var(--cool-grey-50);
+  padding-left: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (min-width: 992px) {
+  .testimonials__eyebrow {
+    order: 0;
+    max-width: 22ch;
+    padding-left: var(--space-md);
+    text-align: left;
+    margin-bottom: unset;
+  }
+}
+
+/* ============ COMPARE TABLE ============ */
+
+.compare {
+  padding: var(--space-6xl) 0;
+}
+
+.compare-table,
+.compare-table thead,
+.compare-table tbody,
+.compare-table tr,
+.compare-table th,
+.compare-table td,
+.compare-table thead th,
+.compare-table tbody td {
+  border: 0;
+}
+
+.compare-table {
+  width: 100%;
+}
+
+.compare-table thead th {
+  background-color: transparent;
+  padding: var(--space-lg);
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: var(--size-2xl);
+  color: var(--cool-mint-700);
+  text-align: center;
+}
+
+.compare-table thead th:first-child {
+  text-align: left;
+}
+
+.compare-table thead th a {
+  color: var(--cool-mint-700);
+}
+
+.compare-table tbody td {
+  padding: var(--space-lg);
+  vertical-align: middle;
+  text-align: center;
+}
+
+.compare-table tbody td.key,
+.compare-table tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.compare-table tbody tr:nth-of-type(odd) {
+  background-color: var(--dusty-orange-50);
+}
+
+
+/* Compare table icons — swap the Font Awesome defaults for bespoke SVGs.
+   Paths: images/check.svg (teal-circle check) and images/ban.svg (orange-circle ban).
+   Using background-image keeps the icon swappable without changing markup. */
+.icon-yes,
+.icon-no {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.icon-yes { background-image: url("../images/check.svg"); }
+.icon-no  { background-image: url("../images/ban.svg"); }
+
+.compare__cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin: var(--space-3xl) 0 var(--space-lg);
+}
+
+.compare__note {
+  text-align: center;
+  font-size: var(--size-sm);
+}
+
+/* ============ INFO BAND (More Info + Newsletter) ============ */
+
+.info-band {
+  position: relative;
+  background-color: var(--surface-page);
+  padding: var(--space-6xl) 0;
+  overflow: hidden;
+}
+
+/* ============ INFO CARDS — variant of .card-panel ============ */
+
+.info-card {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(8, 72, 75, 0.08);
+}
+
+.info-card .card-panel__list li {
+  padding: var(--space-md) 0;
+}
+
+.info-card .card-panel__list a {
+  color: var(--text-default);
+}
+
+.info-card .card-panel__list a:hover {
+  color: var(--brand-accent);
+}
+
+.info-card .card-panel__body p {
+  line-height: 1.5;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1 1 200px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  background-color: var(--surface-page);
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: 0;
+  border-color: var(--brand-primary);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 767.98px) {
+  .orange__stripes {
+    opacity: 0.7;
+  }
+
+  .mint__stripes {
+    width: 50%;
+    opacity: 0.6;
+  }
+
+  .about-mike__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-mike__portrait img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .site-footer .container {
+    padding-left: var(--space-6xl);
+    padding-right: var(--space-5xl);
+  }
+
+  .site-footer__row > .col-md-4 {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .site-footer__col,
+  .site-footer__col p,
+  .site-footer__legal {
+    font-size: var(--size-sm);
+  }
+
+  .site-footer__heading {
+    font-size: var(--size-lg);
+  }
+
+  .site-footer__links,
+  .site-footer__social {
+    text-align: left;
+  }
+
+  .site-footer__links {
+    margin-bottom: var(--space-lg);
+  }
+
+  .site-footer__links li {
+    margin-left: 0;
+    margin-right: var(--space-lg);
+  }
+
+  .faktory-hero__screenshot {
+    text-align: center;
+    margin-top: var(--space-2xl);
+  }
+
+  .compare__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
