@@ -759,6 +759,9 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 8px 24px rgba(8, 72, 75, 0.08);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .info-card .card-panel__list li {
@@ -777,25 +780,28 @@
   line-height: 1.5;
 }
 
-.newsletter-form {
-  display: flex;
-  gap: var(--space-sm);
-  align-items: center;
-  flex-wrap: wrap;
+.card-panel__list--two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--space-3xl);
 }
 
-.newsletter-form input[type="email"] {
-  flex: 1 1 200px;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  padding: var(--space-sm) var(--space-lg);
-  font-family: var(--font-body);
-  background-color: var(--surface-page);
+.card-panel__list--two-col li:nth-last-child(-n+2) {
+  border-bottom: 0;
 }
 
-.newsletter-form input[type="email"]:focus {
-  outline: 0;
-  border-color: var(--brand-primary);
+@media (max-width: 767.98px) {
+  .card-panel__list--two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .card-panel__list--two-col li:nth-last-child(-n+2) {
+    border-bottom: 2px solid var(--border-default);
+  }
+
+  .card-panel__list--two-col li:last-child {
+    border-bottom: 0;
+  }
 }
 
 /* ============ RESPONSIVE ============ */
