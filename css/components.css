@@ -804,6 +804,58 @@
   }
 }
 
+/* ============ FOCUS RING ============
+   Brand-aligned focus indicator. Applied to all focusable interactives via
+   :focus-visible so mouse clicks don't trigger it. */
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--cool-mint-700);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-pill:focus-visible {
+  outline: 2px solid var(--cool-mint-800);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+.mint-band a:focus-visible,
+.mint-band button:focus-visible {
+  outline-color: var(--soft-apricot-300);
+}
+
+/* ============ SKIP LINK ============
+   Hidden offscreen until focused. First tab-stop on every page. */
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--cool-mint-900);
+  color: var(--text-on-inverse);
+  font-family: var(--font-subheading);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 0 0 var(--radius-sm) 0;
+  transform: translateY(-110%);
+  transition: transform 150ms cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 100;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--soft-apricot-300);
+  outline-offset: 2px;
+  text-decoration: none;
+  color: var(--text-on-inverse);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
+}
+
 /* ============ RESPONSIVE ============ */
 
 @media (max-width: 767.98px) {
